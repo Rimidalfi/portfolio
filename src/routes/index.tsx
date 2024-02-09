@@ -1,5 +1,5 @@
 import React from "react";
-import pathConstants from "./pathConstants";
+import path from "./pathConstants";
 
 type RouteObject = { path: string; element: JSX.Element };
 
@@ -8,8 +8,8 @@ const Projects = React.lazy(() => import("../components/Projects"));
 const Contact = React.lazy(() => import("../components/Contact"));
 
 const routes: RouteObject[] = [
-  { path: pathConstants.HOME, element: <Home /> },
-  { path: pathConstants.PROJECTS, element: <Projects /> },
-  { path: pathConstants.CONTACT, element: <Contact /> },
+  { path: path.HOME, element: <Home /> },
+  { path: path.PROJECTS, element: <Projects /> },
+  { path: path.CONTACT, element: <Contact /> },
 ];
 export default routes;
