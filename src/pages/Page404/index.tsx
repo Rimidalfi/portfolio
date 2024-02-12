@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import path from "../routes/pathConstants";
+import path from "../../routes/pathConstants";
 
 export default function Page404() {
   return (
