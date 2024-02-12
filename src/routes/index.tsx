@@ -3,9 +3,9 @@ import path from "./pathConstants";
 
 type RouteObject = { path: string; element: JSX.Element };
 
-const Home = React.lazy(() => import("../components/Home"));
-const Projects = React.lazy(() => import("../components/Projects"));
-const Contact = React.lazy(() => import("../components/Contact"));
+const Home = React.lazy(() => import("../pages/Home"));
+const Projects = React.lazy(() => import("../pages/Projects"));
+const Contact = React.lazy(() => import("../pages/Contact"));
 
 const routes: RouteObject[] = [
   { path: path.HOME, element: <Home /> },

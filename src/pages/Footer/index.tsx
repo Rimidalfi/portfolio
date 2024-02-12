@@ -1,10 +1,9 @@
 import path from "../../routes/pathConstants";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Footer() {
   return (
-    <header>
-      <div>Header 💆‍♂️</div>
+    <footer className="flex justify-evenly p-16 bg-neutral-700 text-white">
       <ul>
         <li>
           <Link to={path.HOME}>home</Link>
@@ -16,8 +15,13 @@ function Header() {
           <Link to={path.CONTACT}>contact</Link>
         </li>
       </ul>
-    </header>
+      <div>Quote</div>
+      <ul>
+        <li>github</li>
+        <li>linkedIn</li>
+      </ul>
+    </footer>
   );
 }
 
-export default Header;
+export default Footer;
