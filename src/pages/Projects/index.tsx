@@ -15,7 +15,7 @@ export default function Projects() {
     return (
       <div
         key={index}
-        className={`h-60 bg-pink-${index % 2 === 0 ? 100 : 200}`}
+        className={`h-60 ${index % 2 === 0 ? "bg-pink-100" : "bg-pink-300"}`}
       >
         <h1 className="text-3xl font-bold text-center">{name}</h1>
       </div>
