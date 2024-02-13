@@ -8,7 +8,7 @@ function Header() {
         <Link to={path.HOME}>Logo</Link>
       </div>
       <ul className="flex space-x-3 pr-8">
-        <li>
+        <li className="hidden md:block">
           <Link to={path.HOME}>home</Link>
         </li>
         <li>
@@ -16,6 +16,9 @@ function Header() {
         </li>
         <li>
           <Link to={path.CONTACT}>contact</Link>
+        </li>
+        <li>
+          <Link to={path.VITA}>vita</Link>
         </li>
       </ul>
     </header>

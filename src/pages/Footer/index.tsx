@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="flex justify-evenly p-16 bg-neutral-700 text-white">
-      <ul>
+    <footer className="flex justify-evenly p-16 bg-neutral-700 text-white leading-8">
+      <ul className="pr-8">
         <li>
           <Link to={path.HOME}>home</Link>
         </li>
@@ -14,9 +14,12 @@ function Footer() {
         <li>
           <Link to={path.CONTACT}>contact</Link>
         </li>
+        <li>
+          <Link to={path.VITA}>vita</Link>
+        </li>
       </ul>
       <div>Quote</div>
-      <ul>
+      <ul className="pl-8">
         <li>github</li>
         <li>linkedIn</li>
       </ul>
