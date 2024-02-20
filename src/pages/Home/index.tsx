@@ -13,15 +13,15 @@ export default function Home() {
   const listOfProjcts = projects.map(prooojects);
   return (
     <>
-      <div className="text-4xl text-center p-32 bg-green-900 text-white">
-        HERO 🚀
+      <div className="text-4xl text-center p-32 bg-green-900 text-white ">
+        Hero 🚀
       </div>
-      <div className="text-4xl text-center p-32 bg-gray-400 text-white">
+      <div className="text-4xl text-center p-32 bg-gray-400 text-white ">
         Skills 🛠️
       </div>
       {listOfProjcts}
-      <div className="text-4xl text-center p-32 bg-gray-400 text-white">
-        CV 📝
+      <div className="text-4xl text-center p-32 bg-gray-400 text-white ">
+        Vita 📝
       </div>
     </>
   );

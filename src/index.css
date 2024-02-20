@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("/src/assets/fonts/Montserrat-Regular.woff2");
+}
+@font-face {
+  font-family: "Montserrat-Italic";
+  src: url("/src/assets/fonts/Montserrat-Italic.woff2");
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("/src/assets/fonts/Montserrat-Bold.woff2");
+}
+@font-face {
+  font-family: "Montserrat-BoldItalic";
+  src: url("/src/assets/fonts/Montserrat-BoldItalic.woff2");
+}
+@font-face {
+  font-family: "Montserrat-Thin";
+  src: url("/src/assets/fonts/Montserrat-Thin.woff2");
+}
+@font-face {
+  font-family: "Montserrat-ThinItalic";
+  src: url("/src/assets/fonts/Montserrat-ThinItalic.woff2");
+}
+@font-face {
+  font-family: "Shrikhand";
+  src: url("/src/assets/fonts/Shrikhand-Regular.woff2");
+}
