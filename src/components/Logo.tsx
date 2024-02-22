@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export interface Props {
   color: string;
   path: string;
-  height: number;
+  height: string;
 }
 export default function Logo(props: Props) {
   const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
@@ -16,6 +16,7 @@ export default function Logo(props: Props) {
   } else {
     index = 0;
   }
+
   useEffect(() => {
     getLogo(VITE_SPACE_ID, VITE_ACCESS_TOKEN, setLogo, index);
   }, []);
@@ -23,7 +24,7 @@ export default function Logo(props: Props) {
   return (
     <div>
       <Link to={props.path}>
-        <img src={logo} alt="JANO" className={`h-${props.height}`} />
+        <img src={logo} alt="JANO" className={props.height} />
       </Link>
     </div>
   );

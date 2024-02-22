@@ -26,22 +26,21 @@ function Footer() {
         </li>
       </ul>
       <div className="flex flex-col items-center">
-        <Logo color="white" path={path.HOME} height={8} />
+        <Logo color="white" path={path.HOME} height={"h-8"} />
         <Quote />
       </div>
-
       <ul className="pl-8 flex flex-col items-center justify-center">
         <li>
-          <Social media={"Github"} size={6} />
+          <Social media={"Github"} size={"size-6"} />
         </li>
         <li className="pt-4">
-          <Social media={"LinkedIn"} size={6} />
+          <Social media={"LinkedIn"} size={"size-6"} />
         </li>
         <li className="pt-4">
-          <Social media={"Youtube"} size={6} />
+          <Social media={"Youtube"} size={"size-6"} />
         </li>
         <li className="pt-4">
-          <Social media={"Instagram"} size={6} />
+          <Social media={"Instagram"} size={"size-6"} />
         </li>
       </ul>
     </footer>

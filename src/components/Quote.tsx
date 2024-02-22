@@ -11,7 +11,6 @@ export default function Quote() {
 
   useEffect(() => {
     getQuote(VITE_SPACE_ID, VITE_ACCESS_TOKEN, setQuote);
-    console.log("QUTE COMP State :", typeof quote[0]);
   }, []);
 
   return (
