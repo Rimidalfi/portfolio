@@ -11,7 +11,7 @@ interface Socials {
 
 export interface Props {
   media: string;
-  size: number;
+  size: string;
 }
 
 export default function Social(props: Props) {
@@ -19,7 +19,6 @@ export default function Social(props: Props) {
   const [socials, setSocials] = useState<Socials>({});
   useEffect(() => {
     getSocials(VITE_SPACE_ID, VITE_ACCESS_TOKEN, setSocials, socials);
-    console.log(socials);
   }, []);
   return (
     <>
@@ -28,7 +27,7 @@ export default function Social(props: Props) {
           <img
             src={socials[props.media].logoURL}
             alt={`${props.media}-Logo`}
-            className={`h-${props.size} w-${props.size}`}
+            className={props.size}
           />
         </a>
       ) : null}

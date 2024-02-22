@@ -5,7 +5,7 @@ import Logo from "../../components/Logo";
 function Header() {
   return (
     <header className="flex justify-between p-6">
-      <Logo color="black" path={path.HOME} height={10} />
+      <Logo color="black" path={path.HOME} height={"h-10"} />
       <ul className="flex pt-2 space-x-3">
         <li className="hidden md:block">
           <Link to={path.HOME}>home</Link>
