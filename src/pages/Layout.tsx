@@ -9,7 +9,7 @@ function Layout() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
   return (
-    <>
+    <div className="">
       <Header />
       <main>
         <Suspense fallback={<div>loading...</div>}>
@@ -17,7 +17,7 @@ function Layout() {
         </Suspense>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

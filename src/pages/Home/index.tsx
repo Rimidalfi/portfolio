@@ -1,3 +1,4 @@
+import Hero from "../../components/Hero";
 export default function Home() {
   const projects: string[] = ["Project One", "Project Two", "Project Three"];
   function prooojects(name: string, index: number) {
@@ -13,9 +14,10 @@ export default function Home() {
   const listOfProjcts = projects.map(prooojects);
   return (
     <>
-      <div className="text-4xl text-center p-32 bg-green-900 text-white ">
+      {/* <div className="text-4xl text-center p-32 bg-green-900 text-white ">
         Hero 🚀
-      </div>
+      </div> */}
+      <Hero />
       <div className="text-4xl text-center p-32 bg-gray-400 text-white ">
         Skills 🛠️
       </div>
