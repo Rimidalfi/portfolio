@@ -21,7 +21,7 @@ function getHero(
       //     entry.fields.quoteAuthor,
       //   ];
       //   setQuote(quoteData);
-      console.log("GETHERO ENTRY:", entry);
+      // console.log("GETHERO ENTRY:", entry);
     })
     .catch((err) => console.error("ERROR:", err));
 }

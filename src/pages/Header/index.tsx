@@ -4,9 +4,9 @@ import Logo from "../../components/Logo";
 
 function Header() {
   return (
-    <header className="flex justify-between p-6">
-      <Logo color="black" path={path.HOME} height={"h-10"} />
-      <ul className="flex pt-2 space-x-3">
+    <header className="fixed top-0 flex justify-between items-center p-4 md:p-6 md:px-12  z-20 bg-white w-full ">
+      <Logo color="black" path={path.HOME} height={"h-8 md:h-10"} />
+      <ul className="flex space-x-3">
         <li className="hidden md:block">
           <Link to={path.HOME}>home</Link>
         </li>

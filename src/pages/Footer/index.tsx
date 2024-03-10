@@ -10,8 +10,8 @@ function Footer() {
     window.scrollTo(0, 0);
   }, [Link]);
   return (
-    <footer className="flex justify-evenly p-8 bg-neutral-700 text-white leading-8">
-      <ul className="pr-8 ">
+    <footer className="flex justify-evenly py-8 bg-neutral-700 text-white leading-8 top-full">
+      <ul className="pr-4 md:pr-0">
         <li>
           <Link to={path.HOME}>home</Link>
         </li>
@@ -25,11 +25,11 @@ function Footer() {
           <Link to={path.VITA}>vita</Link>
         </li>
       </ul>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center pr-8 md:pr-0">
         <Logo color="white" path={path.HOME} height={"h-8"} />
         <Quote />
       </div>
-      <ul className="pl-8 flex flex-col items-center justify-center">
+      <ul className="pl-2 pr-2 md:pr-0 md:pl-0 flex flex-col items-center justify-center">
         <li>
           <Social media={"Github"} size={"size-6"} />
         </li>
