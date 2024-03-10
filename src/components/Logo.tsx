@@ -22,7 +22,7 @@ export default function Logo(props: Props) {
   }, []);
 
   return (
-    <div>
+    <div className="">
       <Link to={props.path}>
         <img src={logo} alt="JANO" className={props.height} />
       </Link>

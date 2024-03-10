@@ -30,3 +30,7 @@
   font-family: "Shrikhand";
   src: url("/src/assets/fonts/Shrikhand-Regular.woff2");
 }
+@font-face {
+  font-family: "MonoLisa-Regular";
+  src: url("/src/assets/fonts/MonoLisa-Regular.woff2");
+}

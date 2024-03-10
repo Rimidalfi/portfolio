@@ -13,8 +13,14 @@ export default {
       "montserrat-thin":["Montserrat-Thin","sans-serif"],
       "montserrat-thin-italic":["Montserrat-ThinItalic","sans-serif"],
       "shrikhand":["Shrikhand","serif"],
+      "mona-lisa":["MonoLisa-Regular","sans-serif"]
   },
-    extend: {},
+    extend: {
+      spacing: {
+        '88': '88px',
+        '64': '64px',
+      },
+    },
   },
   plugins: [],
 }

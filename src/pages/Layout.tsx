@@ -9,15 +9,15 @@ function Layout() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
   return (
-    <>
+    <div className="relative">
       <Header />
-      <main>
+      <main className=" mt-64 md:mt-88">
         <Suspense fallback={<div>loading...</div>}>
           <Outlet />
         </Suspense>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
