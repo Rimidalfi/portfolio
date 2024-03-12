@@ -1,15 +1,6 @@
-import { createClient, EntryFieldTypes } from "contentful";
+import { createClient } from "contentful";
 import { SetStateAction, Dispatch } from "react";
-
 import { ProjectData } from "../components/ProjectCard";
-
-// export interface ProjectData {
-//   projectTitle: string;
-//   projectDescription: string;
-//   projectImage: string;
-//   projectRichText: EntryFieldTypes.RichText;
-//   projectFeatured: boolean;
-// }
 
 function getSingleProject(
   entryId: string,

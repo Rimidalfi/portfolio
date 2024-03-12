@@ -9,6 +9,8 @@ export default {
       sans: ["Montserrat-Regular","sans-serif"],
       "montserrat-italic":["Montserrat-Italic","sans-serif"],
       "montserrat-bold":["Montserrat-Bold","sans-serif"],
+      "montserrat-semibold":["Montserrat-SemiBold","sans-serif"],
+      "montserrat-semibold-italic":["Montserrat-SemiBoldItalic","sans-serif"],
       "montserrat-bold-italic":["Montserrat-BoldItalic","sans-serif"],
       "montserrat-thin":["Montserrat-Thin","sans-serif"],
       "montserrat-thin-italic":["Montserrat-ThinItalic","sans-serif"],

@@ -1,6 +1,6 @@
 import Hero from "../../components/Hero";
-import ProjectCard from "../../components/ProjectCard";
 
+import FeaturedProjects from "../../components/FeaturedProjects";
 export default function Home() {
   return (
     <>
@@ -9,7 +9,7 @@ export default function Home() {
         <div className="text-4xl text-center p-32 bg-gray-400 text-white ">
           Skills 🛠️
         </div>
-        <ProjectCard />
+        <FeaturedProjects />
         <div className="text-4xl text-center p-32 bg-gray-400 text-white ">
           Vita 📝
         </div>
