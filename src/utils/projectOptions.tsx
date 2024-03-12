@@ -32,7 +32,10 @@ const RICHTEXT_OPTIONS = {
     },
     [INLINES.HYPERLINK]: (node, children) => {
       return (
-        <a className=" text-green-900" href={node.data.uri}>
+        <a
+          className=" font-montserrat-semibold-italic text-indigo-700 "
+          href={node.data.uri}
+        >
           {children}
         </a>
       );
@@ -42,7 +45,7 @@ const RICHTEXT_OPTIONS = {
   renderMark: {
     [MARKS.CODE]: (children) => {
       return (
-        <div className="text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-700 text-white rounded-lg p-4 pl-6">
+        <div className="text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-700 text-white rounded-lg p-4 pl-6 w-full overflow-auto">
           <code className="font-mona-lisa">{children}</code>
         </div>
       );

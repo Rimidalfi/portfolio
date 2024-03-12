@@ -11,6 +11,14 @@
   src: url("/src/assets/fonts/Montserrat-Italic.woff2");
 }
 @font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url("/src/assets/fonts/Montserrat-SemiBold.woff2");
+}
+@font-face {
+  font-family: "Montserrat-SemiBoldItalic";
+  src: url("/src/assets/fonts/Montserrat-SemiBoldItalic.woff2");
+}
+@font-face {
   font-family: "Montserrat-Bold";
   src: url("/src/assets/fonts/Montserrat-Bold.woff2");
 }

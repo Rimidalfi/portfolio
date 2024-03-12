@@ -10,34 +10,35 @@ export interface ProjectData {
   projectRichText?: Document;
   projectFeatured?: boolean;
 }
+export interface Props {
+  entryId: string;
+}
 
-function ProjectCard() {
-  const entryId: string = "4LDKo9F5FWSpX0zUqSNsUP";
+function ProjectCard(props: Props) {
   const [projectData, setProjectData] = useState<ProjectData>();
   useEffect(() => {
-    getSingleProject(entryId, setProjectData);
-    console.log(typeof projectData?.projectRichText);
+    getSingleProject(props.entryId, setProjectData);
   }, []);
 
   return (
-    <div className="m-6">
+    <div className="m-6 my-8 md:m-8 lg:m-14 rounded-xl bg-white shadow-xl overflow-hidden">
       <div>
-        <h3 className=" text-xl font-montserrat-bold py-2">
+        <h3 className=" text-xl font-montserrat-bold p-4 py-2 pt-6">
           {projectData?.projectTitle}
         </h3>
       </div>
-      <div className="py-2">
+      <div className=" p-4 py-2 pb-6">
         <p>{projectData?.projectDescription}</p>
       </div>
-      <div className="py-2">
-        <img src={projectData?.projectImage} alt="" />
+      <div className="">
+        <img className="w-full " src={projectData?.projectImage} alt="" />
       </div>
-      <div>
+      {/* <div>
         {documentToReactComponents(
           projectData?.projectRichText,
           RICHTEXT_OPTIONS
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
