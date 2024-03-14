@@ -15,6 +15,7 @@ function getSingleProject(
   client
     .getEntry(entryId)
     .then((entry) => {
+      // console.log(entry);
       if (entry) {
         setProjectData({
           projectTitle: entry.fields.projectTitle,
@@ -22,6 +23,7 @@ function getSingleProject(
           projectImage: entry.fields.projectImage.fields.file.url,
           projectRichText: entry.fields.projectRichText,
           projectFeatured: entry.fields.projectFeatured,
+          projectURL: entry.fields.projectURL,
         });
       }
     })
