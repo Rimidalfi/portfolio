@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import getSingleProject from "../utils/getSingleProject";
+// import getSingleProject from "../utils/getSingleProject";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import RICHTEXT_OPTIONS from "../utils/projectOptions";
+import getProjectByURL from "../utils/getProjectByURL";
 
 export interface ProjectData {
   projectTitle?: string;
@@ -11,13 +12,13 @@ export interface ProjectData {
   projectFeatured?: boolean;
 }
 export interface Props {
-  entryId: string;
+  projectURL?: string;
 }
 
-function ProjectCard(props: Props) {
+export default function ProjectArticle(props: Props) {
   const [projectData, setProjectData] = useState<ProjectData>();
   useEffect(() => {
-    getSingleProject(props.entryId, setProjectData);
+    getProjectByURL(props.projectURL, setProjectData);
   }, []);
 
   return (
@@ -33,7 +34,7 @@ function ProjectCard(props: Props) {
       <div className="">
         <img className="w-full " src={projectData?.projectImage} alt="" />
       </div>
-      <div>
+      <div className="p-4 py-2 pb-6">
         {documentToReactComponents(
           projectData?.projectRichText,
           RICHTEXT_OPTIONS
@@ -42,5 +43,3 @@ function ProjectCard(props: Props) {
     </div>
   );
 }
-
-export default ProjectCard;
