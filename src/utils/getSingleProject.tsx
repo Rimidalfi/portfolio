@@ -15,7 +15,6 @@ function getSingleProject(
   client
     .getEntry(entryId)
     .then((entry) => {
-      // console.log(entry);
       if (entry) {
         setProjectData({
           projectTitle: entry.fields.projectTitle,

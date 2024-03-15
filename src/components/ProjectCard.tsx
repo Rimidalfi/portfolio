@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import getSingleProject from "../utils/getSingleProject";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import RICHTEXT_OPTIONS from "../utils/projectOptions";
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+// import RICHTEXT_OPTIONS from "../utils/projectOptions";
 
 export interface ProjectData {
   projectTitle?: string;
@@ -24,7 +24,7 @@ function ProjectCard(props: Props) {
 
   return (
     <div className="m-6 my-8 md:m-8 lg:m-14 rounded-xl bg-white shadow-xl overflow-hidden">
-      <Link to={`project/${projectData?.projectURL}`}>
+      <Link to={`/project/${projectData?.projectURL}`}>
         <div>
           <h3 className=" text-xl font-montserrat-bold p-4 py-2 pt-6">
             {projectData?.projectTitle}
