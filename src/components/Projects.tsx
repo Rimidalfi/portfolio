@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
-import getFeatured from "../utils/getFeatured";
+import getProjectIds from "../utils/getProjectIds";
 
-function FeaturedProjects() {
+export interface Props {
+  all: boolean;
+}
+
+export default function Projects(props: Props) {
   const [projects, setProjects] = useState<string[]>([]);
   useEffect(() => {
-    getFeatured(setProjects);
+    getProjectIds(setProjects, props.all);
   }, []);
 
   const projectsList = projects?.map((projectId) => {
@@ -18,5 +22,3 @@ function FeaturedProjects() {
 
   return <>{projectsList}</>;
 }
-
-export default FeaturedProjects;

@@ -1,6 +1,7 @@
 import Hero from "../../components/Hero";
 
-import FeaturedProjects from "../../components/FeaturedProjects";
+// import FeaturedProjects from "../../components/FeaturedProjects";
+import Projects from "../../components/Projects";
 export default function Home() {
   return (
     <>
@@ -9,7 +10,8 @@ export default function Home() {
         <div className="text-4xl text-center p-32 bg-gray-400 text-white ">
           Skills 🛠️
         </div>
-        <FeaturedProjects />
+        <Projects all={false} />
+        {/* <FeaturedProjects /> */}
         <div className="text-4xl text-center p-32 bg-gray-400 text-white ">
           Vita 📝
         </div>
