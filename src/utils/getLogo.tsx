@@ -2,17 +2,16 @@ import { createClient } from "contentful";
 import { SetStateAction, Dispatch } from "react";
 
 const logoEntry: string = "28Hl7k83mhlCbExKUHj2Fs";
+const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
 
 function getLogo(
-  spaceId: string,
-  accessToken: string,
   setLogo: Dispatch<SetStateAction<string>>,
   index: number
 ): void {
   const client = createClient({
-    space: spaceId,
+    space: VITE_SPACE_ID,
     environment: "master",
-    accessToken: accessToken,
+    accessToken: VITE_ACCESS_TOKEN,
   });
   client
     .getEntry(logoEntry)
