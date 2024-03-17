@@ -1,17 +1,11 @@
-import { createClient } from "contentful";
 import { SetStateAction, Dispatch } from "react";
 import { ProjectData } from "../components/ProjectCard";
+import client from "../utils/client";
 
 export default function getProjectByURL(
   entryURL: string,
   setProjectData: Dispatch<SetStateAction<ProjectData | undefined>>
 ): void {
-  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
-  const client = createClient({
-    space: VITE_SPACE_ID,
-    environment: "master",
-    accessToken: VITE_ACCESS_TOKEN,
-  });
   client
     .getEntries({ content_type: "project", "fields.projectURL": `${entryURL}` })
     .then((entry) => entry.items[0].fields)

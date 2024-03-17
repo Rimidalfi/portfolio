@@ -1,16 +1,9 @@
-import { createClient } from "contentful";
 import { SetStateAction, Dispatch } from "react";
-
+import client from "../utils/client";
 export default function getProjectIds(
   setProjects: Dispatch<SetStateAction<string[]>>,
   all: boolean
 ): void {
-  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
-  const client = createClient({
-    space: VITE_SPACE_ID,
-    environment: "master",
-    accessToken: VITE_ACCESS_TOKEN,
-  });
   client
     .getEntries({ content_type: "project" })
     .then((entry) => {

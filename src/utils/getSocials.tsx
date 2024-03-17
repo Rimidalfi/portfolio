@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
 import { SetStateAction, Dispatch } from "react";
+import client from "./client";
 
 interface SocialURLS {
   logoURL: string;
@@ -10,16 +11,9 @@ interface Socials {
 }
 
 function getSocials(
-  spaceId: string,
-  accessToken: string,
   setSocials: Dispatch<SetStateAction<Socials>>,
   socials: Socials
 ): void {
-  const client = createClient({
-    space: spaceId,
-    environment: "master",
-    accessToken: accessToken,
-  });
   client
     .getEntries({
       content_type: "socials",

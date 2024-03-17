@@ -1,16 +1,10 @@
-import { createClient } from "contentful";
 import { Dispatch, SetStateAction } from "react";
 import { HeroData } from "../components/Hero";
+import client from "../utils/client";
 
 export default function getHero(
   setHeroData: Dispatch<SetStateAction<HeroData | undefined>>
 ): void {
-  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
-  const client = createClient({
-    space: VITE_SPACE_ID,
-    environment: "master",
-    accessToken: VITE_ACCESS_TOKEN,
-  });
   client
     .getEntries({
       content_type: "heroSection",

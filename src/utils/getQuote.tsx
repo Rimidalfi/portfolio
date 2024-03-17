@@ -1,20 +1,11 @@
-import { createClient } from "contentful";
 import { SetStateAction, Dispatch } from "react";
+import client from "../utils/client";
 
-const logoEntry: string = "75clceYVFFdMXOeSuVzWRE";
+const quoteEntry: string = "75clceYVFFdMXOeSuVzWRE";
 
-function getQuote(
-  spaceId: string,
-  accessToken: string,
-  setQuote: Dispatch<SetStateAction<string[]>>
-): void {
-  const client = createClient({
-    space: spaceId,
-    environment: "master",
-    accessToken: accessToken,
-  });
+function getQuote(setQuote: Dispatch<SetStateAction<string[]>>): void {
   client
-    .getEntry(logoEntry)
+    .getEntry(quoteEntry)
     .then((entry: any) => {
       const quoteData: string[] = [
         entry.fields.quoteText,
