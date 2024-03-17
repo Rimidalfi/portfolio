@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import getQuote from "../utils/getQuote";
 
 export default function Quote() {
-  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
   const [quote, setQuote] = useState<string[]>([]);
 
   useEffect(() => {
-    getQuote(VITE_SPACE_ID, VITE_ACCESS_TOKEN, setQuote);
+    getQuote(setQuote);
   }, []);
 
   return (

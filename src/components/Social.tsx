@@ -15,10 +15,9 @@ export interface Props {
 }
 
 export default function Social(props: Props) {
-  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
   const [socials, setSocials] = useState<Socials>({});
   useEffect(() => {
-    getSocials(VITE_SPACE_ID, VITE_ACCESS_TOKEN, setSocials, socials);
+    getSocials(setSocials, socials);
   }, []);
   return (
     <>
