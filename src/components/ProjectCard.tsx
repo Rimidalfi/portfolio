@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import getSingleProject from "../utils/getSingleProject";
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-// import RICHTEXT_OPTIONS from "../utils/projectOptions";
 
 export interface ProjectData {
   projectTitle?: string;

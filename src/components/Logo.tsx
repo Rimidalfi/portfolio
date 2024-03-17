@@ -7,7 +7,6 @@ export interface Props {
   height: string;
 }
 export default function Logo(props: Props) {
-  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
   const [logo, setLogo] = useState<string>("");
 
   let index: number = 0;
@@ -18,7 +17,7 @@ export default function Logo(props: Props) {
   }
 
   useEffect(() => {
-    getLogo(VITE_SPACE_ID, VITE_ACCESS_TOKEN, setLogo, index);
+    getLogo(setLogo, index);
   }, []);
 
   return (

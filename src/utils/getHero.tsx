@@ -1,29 +1,31 @@
 import { createClient } from "contentful";
-// import { SetStateAction, Dispatch } from "react";
+import { Dispatch, SetStateAction } from "react";
+import { HeroData } from "../components/Hero";
 
-const logoEntry: string = "6L8DSF7ej4YRs8DhDLcuLp";
-
-function getHero(
-  spaceId: string,
-  accessToken: string
-  //   setQuote: Dispatch<SetStateAction<string[]>>
+export default function getHero(
+  setHeroData: Dispatch<SetStateAction<HeroData | undefined>>
 ): void {
+  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env;
   const client = createClient({
-    space: spaceId,
+    space: VITE_SPACE_ID,
     environment: "master",
-    accessToken: accessToken,
+    accessToken: VITE_ACCESS_TOKEN,
   });
   client
-    .getEntry(logoEntry)
-    .then((entry: any) => {
-      //   const quoteData: string[] = [
-      //     entry.fields.quoteText,
-      //     entry.fields.quoteAuthor,
-      //   ];
-      //   setQuote(quoteData);
-      // console.log("GETHERO ENTRY:", entry);
+    .getEntries({
+      content_type: "heroSection",
     })
-    .catch((err) => console.error("ERROR:", err));
+    .then((entry) => entry.items[0].fields)
+    .then((entry) => {
+      if (entry) {
+        console.log(entry.heroTitle);
+        setHeroData({
+          heroTitle: entry.heroTitle,
+          heroText: entry.heroText,
+          heroImage: entry.heroImage.fields.file.url,
+          heroSubtitle: entry.heroSubtitle,
+        });
+      }
+    })
+    .catch((err) => console.error("get Hero ERROR:", err));
 }
-
-export default getHero;
