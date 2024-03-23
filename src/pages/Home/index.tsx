@@ -1,5 +1,5 @@
 import Hero from "../../components/Hero";
-
+import Vita from "../Vita";
 // import FeaturedProjects from "../../components/FeaturedProjects";
 import Projects from "../../components/Projects";
 export default function Home() {
@@ -12,9 +12,7 @@ export default function Home() {
         </div>
         <Projects all={false} />
         {/* <FeaturedProjects /> */}
-        <div className="text-4xl text-center p-32 bg-gray-400 text-white ">
-          Vita 📝
-        </div>
+        <Vita />
       </div>
     </>
   );

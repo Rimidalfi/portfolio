@@ -2,7 +2,7 @@ import { SetStateAction, Dispatch } from "react";
 import client from "../utils/client";
 export default function getProjectIds(
   setProjects: Dispatch<SetStateAction<string[]>>,
-  all: boolean
+  all: boolean = true
 ): void {
   client
     .getEntries({ content_type: "project" })
