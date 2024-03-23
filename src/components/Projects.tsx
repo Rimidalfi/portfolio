@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 import getProjectIds from "../utils/getProjectIds";
 
 export interface Props {
-  all: boolean;
+  all?: boolean;
 }
 
 export default function Projects(props: Props) {
