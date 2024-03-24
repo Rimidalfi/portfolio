@@ -17,12 +17,11 @@ export default function VitaEntires() {
     return (
       <div key={object.vitaId}>
         <VitaPoint entryId={object.vitaId} />
-        {/* {object.vitaStartDate}-{object.vitaEndDate} */}
       </div>
     );
   });
   return (
-    <div className="text-4xl text-center p-32 bg-gray-400 text-white">
+    <div className="flex flex-col md:items-center text-4xl text-center  bg-gray-400 text-white">
       Vita 📝
       {vitaPoints}
     </div>

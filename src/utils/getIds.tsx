@@ -9,15 +9,18 @@ export default function getIds(
     .getEntries({ content_type: "vita" })
     .then((entry) => {
       console.log("getIds", entry.items);
-      const entryIds = entry.items.map((item) => {
-        if (item) {
-          return {
-            vitaId: item.sys.id,
-            vitaStartDate: item.fields.vitaStartDate.slice(0, 4),
-            vitaEndDate: item.fields.vitaEndDate.slice(0, 4),
-          };
-        }
-      });
+      const entryIds = entry.items
+        .map((item) => {
+          if (item) {
+            return {
+              vitaId: item.sys.id,
+              vitaStartDate: item.fields.vitaStartDate.slice(0, 4),
+              vitaEndDate: item.fields.vitaEndDate.slice(0, 4),
+            };
+          }
+        })
+        .sort((a, b) => parseInt(b?.vitaEndDate) - parseInt(a?.vitaEndDate));
+      console.log("Sorted list", entryIds);
       setIds(entryIds);
     })
     .catch((err) => console.error("getIds ERROR:", err));
