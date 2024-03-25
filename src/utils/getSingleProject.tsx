@@ -1,25 +1,26 @@
 import { SetStateAction, Dispatch } from "react";
-import { ProjectData } from "../components/ProjectCard";
+import { ProjectCardData } from "../components/ProjectCard";
 import client from "../utils/client";
-function getSingleProject(
+
+export default function getSingleProject(
   entryId: string,
-  setProjectData: Dispatch<SetStateAction<ProjectData | undefined>>
+  setProjectData: Dispatch<SetStateAction<ProjectCardData | undefined>>
 ): void {
   client
     .getEntry(entryId)
-    .then((entry) => {
+    .then((entry: any) => {
       if (entry) {
-        setProjectData({
-          projectTitle: entry.fields.projectTitle,
-          projectDescription: entry.fields.projectDescription,
-          projectImage: entry.fields.projectImage.fields.file.url,
-          projectRichText: entry.fields.projectRichText,
-          projectFeatured: entry.fields.projectFeatured,
-          projectURL: entry.fields.projectURL,
-        });
+        const fields = entry.fields;
+        const projectData: ProjectCardData = {
+          projectTitle: fields.projectTitle,
+          projectDescription: fields.projectDescription,
+          projectImage: fields.projectImage?.fields.file.url,
+          projectRichText: fields.projectRichText,
+          projectFeatured: fields.projectFeatured,
+          projectURL: fields.projectURL,
+        };
+        setProjectData(projectData);
       }
     })
     .catch((err) => console.error("get Single Project ERROR:", err));
 }
-
-export default getSingleProject;

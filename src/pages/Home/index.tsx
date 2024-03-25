@@ -11,7 +11,6 @@ export default function Home() {
           Skills 🛠️
         </div>
         <Projects all={false} />
-        {/* <FeaturedProjects /> */}
         <Vita />
       </div>
     </>

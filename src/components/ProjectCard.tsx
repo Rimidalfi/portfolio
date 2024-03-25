@@ -2,20 +2,22 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import getSingleProject from "../utils/getSingleProject";
 
-export interface ProjectData {
-  projectTitle?: string;
-  projectDescription?: string;
-  projectImage?: string;
-  projectRichText?: Document;
-  projectFeatured?: boolean;
-  projectURL?: string;
+export interface ProjectCardData {
+  projectTitle?: any;
+  projectDescription?: any;
+  projectImage?: any;
+  projectRichText?: any;
+  projectFeatured?: any;
+  projectURL?: any;
 }
 export interface Props {
   entryId: string;
 }
 
-function ProjectCard(props: Props) {
-  const [projectData, setProjectData] = useState<ProjectData>();
+export default function ProjectCard(props: Props) {
+  const [projectData, setProjectData] = useState<ProjectCardData | undefined>(
+    undefined
+  );
   useEffect(() => {
     getSingleProject(props.entryId, setProjectData);
   }, []);
@@ -42,5 +44,3 @@ function ProjectCard(props: Props) {
     </div>
   );
 }
-
-export default ProjectCard;

@@ -11,7 +11,6 @@ export default function VitaEntires() {
   const [vitaObjects, setVitaObjects] = useState<VitaObject[]>([]);
   useEffect(() => {
     getIds(setVitaObjects);
-    // console.log(vitaIds);
   }, []);
   const vitaPoints = vitaObjects.map((object) => {
     return (

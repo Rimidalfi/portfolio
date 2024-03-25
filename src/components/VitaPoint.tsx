@@ -35,8 +35,8 @@ export default function VitaPoint(props: Props) {
               {vitaData?.vitaDescription}
             </p>
             <p className="border-gray-50 text-sm">
-              {vitaData?.vitaStartDate.slice(0, 4)}-
-              {vitaData?.vitaEndDate.slice(0, 4)}
+              {vitaData?.vitaStartDate?.slice(0, 4)}-
+              {vitaData?.vitaEndDate?.slice(0, 4)}
             </p>
           </div>
         </div>
