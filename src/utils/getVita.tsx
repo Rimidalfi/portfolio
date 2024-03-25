@@ -8,7 +8,7 @@ export default function getVita(
 ): void {
   client
     .getEntry(entryId)
-    .then((entry) => {
+    .then((entry: any) => {
       if (entry) {
         setVitaData({
           vitaTitle: entry.fields.vitaTitle,

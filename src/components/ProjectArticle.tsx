@@ -1,22 +1,21 @@
 import { useEffect, useState } from "react";
-// import getSingleProject from "../utils/getSingleProject";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import RICHTEXT_OPTIONS from "../utils/projectOptions";
 import getProjectByURL from "../utils/getProjectByURL";
 
-export interface ProjectData {
-  projectTitle?: string;
-  projectDescription?: string;
-  projectImage?: string;
-  projectRichText?: Document;
-  projectFeatured?: boolean;
+export interface ArticleData {
+  projectTitle?: any;
+  projectDescription?: any;
+  projectImage?: any;
+  projectRichText?: any;
+  projectFeatured?: any;
 }
 export interface Props {
   projectURL?: string;
 }
 
 export default function ProjectArticle(props: Props) {
-  const [projectData, setProjectData] = useState<ProjectData>();
+  const [projectData, setProjectData] = useState<ArticleData>();
   useEffect(() => {
     getProjectByURL(props.projectURL, setProjectData);
   }, []);

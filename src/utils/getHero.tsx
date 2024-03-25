@@ -10,7 +10,7 @@ export default function getHero(
       content_type: "heroSection",
     })
     .then((entry) => entry.items[0].fields)
-    .then((entry) => {
+    .then((entry: any) => {
       if (entry) {
         console.log(entry.heroTitle);
         setHeroData({
