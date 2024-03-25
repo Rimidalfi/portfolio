@@ -1,4 +1,3 @@
-import { createClient } from "contentful";
 import { SetStateAction, Dispatch } from "react";
 import client from "./client";
 
