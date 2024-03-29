@@ -1,7 +1,8 @@
 import { useState, FormEvent, useEffect } from "react";
+import sendEmail from "../utils/sendEmail";
 // import sendEmail from "../utils/sendEmail";
 
-interface formData {
+export interface FormData {
   name: string;
   phone: string;
   email: string;
@@ -9,7 +10,7 @@ interface formData {
 }
 
 export default function ContactCard() {
-  const [formValues, setFormValues] = useState<formData>({
+  const [formValues, setFormValues] = useState<FormData>({
     name: "",
     phone: "",
     email: "",
@@ -27,7 +28,7 @@ export default function ContactCard() {
     const target = event.target as HTMLFormElement;
     const value: string = target.value;
     const name: string = target.name;
-    setFormValues((values) => ({ ...values, [name]: value }));
+    setFormValues((values: FormData) => ({ ...values, [name]: value }));
   }
 
   return (
@@ -76,9 +77,10 @@ export default function ContactCard() {
           onChange={handleChange}
         ></textarea>
         <button
-          className=" bg-green-300"
+          className=" bg-sky-500 ounded-xl"
           onClick={() => {
             console.log("FORMVALUES:", formValues);
+            sendEmail(formValues);
             setFormValues({
               name: "",
               phone: "",
