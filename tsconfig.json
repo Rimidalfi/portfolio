@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "src/utils/sendEmail.tsx", "sendEmail.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
