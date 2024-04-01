@@ -10,7 +10,7 @@ function Footer() {
     window.scrollTo(0, 0);
   }, [Link]);
   return (
-    <footer className="flex justify-evenly py-8 bg-neutral-700 text-white leading-8 top-full">
+    <footer className="flex justify-evenly py-8 bg-neutral-700 text-white leading-8">
       <ul className="pr-4 md:pr-0">
         <li>
           <Link to={path.HOME}>home</Link>

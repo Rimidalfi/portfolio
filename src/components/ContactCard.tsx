@@ -65,11 +65,11 @@ export default function ContactCard() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center m-4 md:m-8 lg:m-14 rounded-xl bg-white shadow-xl">
+    <div className="m-2  flex flex-col items-center justify-center rounded-xl bg-white shadow-xl">
       <div
         className={
           status
-            ? "absolute inset-0 flex flex-col justify-center items-center z-10 opacity-100 transition-opacity ease-in-out delay-150 duration-300"
+            ? "absolute  flex flex-col justify-center items-center z-10 opacity-100 transition-opacity ease-in-out delay-150 duration-300"
             : "opacity-0 absolute z-10"
         }
       >
@@ -87,15 +87,18 @@ export default function ContactCard() {
         }
       >
         <div className="text-center">
-          <h3 className="text-xl pt-4">Contact</h3>
+          <h3 className="text-xl pt-2">Contact</h3>
           <div className="flex flex-row items-center justify-center">
             <h3 className="pr-1 py-2">Lets get in touch</h3>
             <h3 className="text-2xl">🤝</h3>
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="px-4 pb-4 flex flex-col">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-center m-1"
+        >
           <input
-            className="my-2 p-2 bg-slate-200 rounded-xl"
+            className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl"
             type="text"
             placeholder="name"
             name="name"
@@ -103,7 +106,7 @@ export default function ContactCard() {
             onChange={handleChange}
           />
           <input
-            className="my-2 p-2 bg-slate-200 rounded-xl "
+            className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl "
             type="email"
             placeholder="email"
             name="email"
@@ -111,7 +114,7 @@ export default function ContactCard() {
             onChange={handleChange}
           />
           <input
-            className="my-2 p-2 bg-slate-200 rounded-xl "
+            className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl "
             type="tel"
             placeholder="phone (optional)"
             name="phone"
@@ -127,7 +130,7 @@ export default function ContactCard() {
           </label>
 
           <textarea
-            className="my-2 p-2 bg-slate-200 rounded-xl "
+            className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl "
             id=""
             cols={30}
             rows={10}
@@ -137,7 +140,7 @@ export default function ContactCard() {
             onChange={handleChange}
           ></textarea>
           <button
-            className="mt-2 p-2 bg-sky-500 ounded-xl h-12 rounded-xl active:scale-90 active:shadow-sm shadow-lg hover:bg-amber-400 active:bg-amber-100 duration-300 ease-in shadow-gray-400"
+            className="my-2 sm:my-3 p-2 w-11/12 bg-sky-500 h-12 rounded-xl active:scale-90 active:shadow-sm shadow-lg hover:bg-amber-400 active:bg-amber-100 duration-300 ease-in shadow-gray-400"
             onClick={() => {
               console.log("FORMVALUES:", formValues);
               // sendEmail(formValues);
