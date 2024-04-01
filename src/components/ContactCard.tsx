@@ -65,7 +65,7 @@ export default function ContactCard() {
   }
 
   return (
-    <div className="m-2  flex flex-col items-center justify-center rounded-xl bg-white shadow-xl">
+    <div className="my-2  flex flex-col items-center justify-center rounded-xl bg-white shadow-xl">
       <div
         className={
           status
