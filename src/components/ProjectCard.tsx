@@ -23,7 +23,7 @@ export default function ProjectCard(props: Props) {
   }, []);
 
   return (
-    <div className="m-6 my-8 md:m-8 lg:m-14 rounded-xl bg-white shadow-xl overflow-hidden hover:-translate-y-1 touch:-translate-y-1 duration-500">
+    <div className="m-4 md:m-6 lg:m-8 w-screen  bg-white shadow-xl overflow-hidden hover:-translate-y-1 touch:-translate-y-1 duration-500">
       <Link to={`/project/${projectData?.projectURL}`}>
         <div>
           <h3 className=" text-xl font-montserrat-bold p-4 py-2 pt-6">

@@ -15,7 +15,7 @@ export default {
       "montserrat-thin":["Montserrat-Thin","sans-serif"],
       "montserrat-thin-italic":["Montserrat-ThinItalic","sans-serif"],
       "shrikhand":["Shrikhand","serif"],
-      "mona-lisa":["MonoLisa-Regular","sans-serif"]
+      "mona-lisa":["MonoLisa-Regular","mono"]
   },
     extend: {
       spacing: {

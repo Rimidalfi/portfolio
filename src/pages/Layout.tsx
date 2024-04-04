@@ -11,7 +11,7 @@ function Layout() {
   return (
     <div className="flex flex-col bg-slate-100 min-h-screen">
       <Header />
-      <main className="mt-64 md:mt-88 flex-grow flex justify-center items-center bg-gray-400">
+      <main className="mt-64 md:mt-88 flex-grow flex justify-center items-center bg-gradient-to-tr from-slate-400">
         <Suspense fallback={<div>loading...</div>}>
           <Outlet />
         </Suspense>
