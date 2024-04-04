@@ -1,6 +1,5 @@
 import { useState, FormEvent, useEffect } from "react";
-// import sendEmail from "../utils/sendEmail";
-// import sendEmail from "../utils/sendEmail";
+import sendEmail from "../utils/sendEmail";
 
 export interface FormData {
   name: string;
@@ -52,7 +51,7 @@ export default function ContactCard() {
     const value: string = target.value;
     const name: string = target.name;
     if (/^[\/\d-+]*$/.test(value)) {
-      formRequire.phone = true;
+      setFormRequire((values: FormRequire) => ({ ...values, phone: true }));
       setFormValues((values: FormData) => ({ ...values, [name]: value }));
       console.log("VALUES NUMMBERS");
     } else {
@@ -64,8 +63,29 @@ export default function ContactCard() {
     }
   }
 
+  function onButtonClick() {
+    if (formValues.email.includes("@") && formValues.message.length > 0) {
+      sendEmail(formValues);
+      console.log("FORMVALUES:", formValues);
+      setFormValues({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+      setStatus(true);
+    } else {
+      setFormRequire((values: FormRequire) => ({
+        ...values,
+        email: formValues.email.includes("@") ? true : false,
+        message: formValues.message.length > 0 ? true : false,
+      }));
+      console.log("REQUIRED FIELDS EMPTY!");
+    }
+  }
+
   return (
-    <div className="my-2  flex flex-col items-center justify-center rounded-xl bg-white shadow-xl">
+    <div className="m-4 md:m-6 lg:m-8 w-screen  flex flex-col items-center justify-center  bg-white shadow-xl">
       <div
         className={
           status
@@ -88,49 +108,55 @@ export default function ContactCard() {
       >
         <div className="text-center">
           <h3 className="text-xl pt-2">Contact</h3>
-          <div className="flex flex-row items-center justify-center">
+          <div className="flex flex-row items-center justify-center text-slate-600">
             <h3 className="pr-1 py-2">Lets get in touch</h3>
             <h3 className="text-2xl">🤝</h3>
           </div>
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-center m-1"
+          className="flex flex-col items-center w-fit"
         >
+          <input
+            className="my-2 p-2 w-11/12 grow bg-slate-200 rounded-xl "
+            type="text"
+            placeholder="email"
+            name="email"
+            value={formValues?.email || ""}
+            onChange={handleChange}
+          />
+          <label
+            className="text-sm p-1 text-red-700"
+            htmlFor=""
+            hidden={formRequire.email}
+          >
+            * Please enter a valid email
+          </label>
           <input
             className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl"
             type="text"
-            placeholder="name"
+            placeholder="name (optional)"
             name="name"
             value={formValues?.name || ""}
             onChange={handleChange}
           />
           <input
             className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl "
-            type="email"
-            placeholder="email"
-            name="email"
-            value={formValues?.email || ""}
-            onChange={handleChange}
-          />
-          <input
-            className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl "
-            type="tel"
+            type="text"
             placeholder="phone (optional)"
             name="phone"
             value={formValues?.phone || ""}
             onChange={handlephoneChange}
           />
           <label
-            className=" p-1 text-red-700"
+            className="text-sm p-1 text-red-700"
             htmlFor=""
             hidden={formRequire.phone}
           >
             * Please enter a valid Phone number
           </label>
-
           <textarea
-            className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl "
+            className="my-2 p-2 w-11/12 sm:w-96 bg-slate-200 rounded-xl "
             id=""
             cols={30}
             rows={10}
@@ -139,22 +165,25 @@ export default function ContactCard() {
             value={formValues?.message || ""}
             onChange={handleChange}
           ></textarea>
+          <label
+            className="text-sm p-1 text-red-700"
+            htmlFor=""
+            hidden={formRequire.message}
+          >
+            * Please enter message text
+          </label>
           <button
             className="my-2 sm:my-3 p-2 w-11/12 bg-sky-500 h-12 rounded-xl active:scale-90 active:shadow-sm shadow-lg hover:bg-amber-400 active:bg-amber-100 duration-300 ease-in shadow-gray-400"
-            onClick={() => {
-              console.log("FORMVALUES:", formValues);
-              // sendEmail(formValues);
-              setFormValues({
-                name: "",
-                phone: "",
-                email: "",
-                message: "",
-              });
-              setStatus(true);
-            }}
+            onClick={onButtonClick}
           >
             Send
           </button>
+          <div className="flex flex-col items-center text-gray-400 mb-2">
+            <p>Your data is only used to contact you.</p>
+            <a className=" text-xs" href="">
+              Learn more
+            </a>
+          </div>
         </form>
       </div>
     </div>
