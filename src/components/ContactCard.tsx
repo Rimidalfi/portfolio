@@ -1,6 +1,7 @@
 import { useState, FormEvent, useEffect } from "react";
+import path from "../routes/pathConstants";
 import sendEmail from "../utils/sendEmail";
-
+import { Link } from "react-router-dom";
 export interface FormData {
   name: string;
   phone: string;
@@ -180,9 +181,9 @@ export default function ContactCard() {
           </button>
           <div className="flex flex-col items-center text-gray-400 mb-2">
             <p>Your data is only used to contact you.</p>
-            <a className=" text-xs" href="">
+            <Link to={`/${path.LEGALS}`} className=" text-xs">
               Learn more
-            </a>
+            </Link>
           </div>
         </form>
       </div>

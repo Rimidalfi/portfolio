@@ -8,6 +8,8 @@ const Projects = React.lazy(() => import("../pages/AllProjects"));
 const Contact = React.lazy(() => import("../pages/Contact"));
 const Vita = React.lazy(() => import("../pages/Vita"));
 const Project = React.lazy(() => import("../pages/SingleProject"));
+const Legals = React.lazy(() => import("../pages/Legals"));
+const Imprint = React.lazy(() => import("../pages/Imprint"));
 
 const routes: RouteObject[] = [
   { path: path.HOME, element: <Home /> },
@@ -15,5 +17,7 @@ const routes: RouteObject[] = [
   { path: path.CONTACT, element: <Contact /> },
   { path: path.VITA, element: <Vita /> },
   { path: path.PROJECT, element: <Project /> },
+  { path: path.LEGALS, element: <Legals /> },
+  { path: path.IMPRINT, element: <Imprint /> },
 ];
 export default routes;
