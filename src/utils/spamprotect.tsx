@@ -1,1 +1,1 @@
-export default function protectedInfo(info: string) {}
+// export default function protectedInfo(info: string) {}
