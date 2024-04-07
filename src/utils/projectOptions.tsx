@@ -7,17 +7,29 @@ const RICHTEXT_OPTIONS = {
       node;
       return <p className="py-2">{children}</p>;
     },
+    [BLOCKS.HEADING_1]: (node: any, children: any) => {
+      node;
+      return (
+        <h1 className="text-4lxl py-2 font-montserrat-semibold">{children}</h1>
+      );
+    },
     [BLOCKS.HEADING_2]: (node: any, children: any) => {
       node;
-      return <h2 className="blogH2">{children}</h2>;
+      return (
+        <h2 className="blogH2 text-2xl font-montserrat-semibold">{children}</h2>
+      );
     },
     [BLOCKS.HEADING_3]: (node: any, children: any) => {
       node;
-      return <h3 className="text-xl py-2">{children}</h3>;
+      return (
+        <h3 className="text-1xl py-2 font-montserrat-semibold">{children}</h3>
+      );
     },
     [BLOCKS.HEADING_4]: (node: any, children: any) => {
       node;
-      return <h4 className="blogH4">{children}</h4>;
+      return (
+        <h4 className="blogH4 text-xl font-montserrat-semibold">{children}</h4>
+      );
     },
     [BLOCKS.HEADING_5]: (node: any, children: any) => {
       node;

@@ -8,6 +8,5 @@ export default function sendEmail(formData: FormData) {
   };
   fetch("http://localhost:3001/", requestOptions).then((response) => {
     response.json();
-    alert("Inquiry send! 🚀");
   });
 }

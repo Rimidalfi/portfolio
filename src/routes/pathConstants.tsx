@@ -4,5 +4,7 @@ const pathConstants: { [key: string]: string } = {
   PROJECTS: "projects",
   VITA: "vita",
   PROJECT: "project/:id",
+  LEGALS: "legals",
+  IMPRINT: "imprint",
 };
 export default pathConstants;
