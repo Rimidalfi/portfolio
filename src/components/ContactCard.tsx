@@ -2,25 +2,30 @@ import { useState, FormEvent, useEffect } from "react";
 import path from "../routes/pathConstants";
 import sendEmail from "../utils/sendEmail";
 import { Link } from "react-router-dom";
+import Spamguard from "./Spamguard";
+
 export interface FormData {
   name: string;
   phone: string;
   email: string;
   message: string;
 }
-interface FormRequire {
+
+export interface FormRequire {
   name: boolean;
   phone: boolean;
   email: boolean;
   message: boolean;
+  calc: boolean;
 }
-
+//MARK: Hallo
 export default function ContactCard() {
   const [formRequire, setFormRequire] = useState<FormRequire>({
     name: true,
     phone: true,
     email: true,
     message: true,
+    calc: false,
   });
   const [formValues, setFormValues] = useState<FormData>({
     name: "",
@@ -29,6 +34,7 @@ export default function ContactCard() {
     message: "",
   });
   const [status, setStatus] = useState<boolean>(false);
+  const [calcStatus, setCalcStatus] = useState<boolean>(true);
 
   useEffect(() => {
     setStatus(false);
@@ -65,23 +71,27 @@ export default function ContactCard() {
   }
 
   function onButtonClick() {
-    if (formValues.email.includes("@") && formValues.message.length > 0) {
-      sendEmail(formValues);
-      console.log("FORMVALUES:", formValues);
-      setFormValues({
-        name: "",
-        phone: "",
-        email: "",
-        message: "",
-      });
-      setStatus(true);
+    if (formRequire.calc) {
+      if (formValues.email.includes("@") && formValues.message.length > 0) {
+        sendEmail(formValues);
+        console.log("FORMVALUES:", formValues);
+        setFormValues({
+          name: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
+        setStatus(true);
+      } else {
+        setFormRequire((values: FormRequire) => ({
+          ...values,
+          email: formValues.email.includes("@") ? true : false,
+          message: formValues.message.length > 0 ? true : false,
+        }));
+        console.log("REQUIRED FIELDS EMPTY!");
+      }
     } else {
-      setFormRequire((values: FormRequire) => ({
-        ...values,
-        email: formValues.email.includes("@") ? true : false,
-        message: formValues.message.length > 0 ? true : false,
-      }));
-      console.log("REQUIRED FIELDS EMPTY!");
+      formRequire.calc ? setCalcStatus(true) : setCalcStatus(false);
     }
   }
 
@@ -116,10 +126,10 @@ export default function ContactCard() {
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-center w-fit"
+          className="flex flex-col items-center w-screen "
         >
           <input
-            className="my-2 p-2 w-11/12 grow bg-slate-200 rounded-xl "
+            className="my-2 p-2 w-10/12 md:w-6/12 lg:w-4/12 grow bg-slate-200 rounded-xl shadow-inner"
             type="text"
             placeholder="email"
             name="email"
@@ -134,7 +144,7 @@ export default function ContactCard() {
             * Please enter a valid email
           </label>
           <input
-            className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl"
+            className="my-2 p-2 w-10/12 md:w-6/12 lg:w-4/12  bg-slate-200 rounded-xl shadow-inner"
             type="text"
             placeholder="name (optional)"
             name="name"
@@ -142,7 +152,7 @@ export default function ContactCard() {
             onChange={handleChange}
           />
           <input
-            className="my-2 p-2 w-11/12 bg-slate-200 rounded-xl "
+            className="my-2 p-2 w-10/12  md:w-6/12 lg:w-4/12 bg-slate-200 rounded-xl shadow-inner"
             type="text"
             placeholder="phone (optional)"
             name="phone"
@@ -157,7 +167,7 @@ export default function ContactCard() {
             * Please enter a valid Phone number
           </label>
           <textarea
-            className="my-2 p-2 w-11/12 sm:w-96 bg-slate-200 rounded-xl "
+            className="my-2 p-2  w-10/12 md:w-6/12 lg:w-4/12 bg-slate-200 rounded-xl shadow-inner resize-none"
             id=""
             cols={30}
             rows={10}
@@ -173,15 +183,21 @@ export default function ContactCard() {
           >
             * Please enter message text
           </label>
+          <Spamguard
+            setFormRequire={setFormRequire}
+            formRequire={formRequire}
+            calcStatus={calcStatus}
+          />
+
           <button
-            className="my-2 sm:my-3 p-2 w-11/12 bg-sky-500 h-12 rounded-xl active:scale-90 active:shadow-sm shadow-lg hover:bg-amber-400 active:bg-amber-100 duration-300 ease-in shadow-gray-400"
+            className="my-2 p-2 w-10/12 md:w-5/12 lg:w-3/12  bg-sky-500 h-12 rounded-xl active:scale-90 active:shadow-sm shadow-lg hover:bg-amber-400 active:bg-amber-100 duration-300 ease-in shadow-gray-400"
             onClick={onButtonClick}
           >
             Send
           </button>
           <div className="flex flex-col items-center text-gray-400 mb-2">
             <p>Your data is only used to contact you.</p>
-            <Link to={`/${path.LEGALS}`} className=" text-xs">
+            <Link to={`/${path.LEGALS}`} className=" text-xs mb-1">
               Learn more
             </Link>
           </div>
