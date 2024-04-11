@@ -23,7 +23,9 @@ export default {
         '64': '64px',
       },
     },
+  
   },
+  future:{hoverOnlyWhenSupported: true},
   plugins: [],
 }
 
