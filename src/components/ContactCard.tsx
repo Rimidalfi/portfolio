@@ -35,7 +35,6 @@ export default function ContactCard() {
   });
   const [status, setStatus] = useState<boolean>(false);
   const [calcStatus, setCalcStatus] = useState<boolean>(true);
-
   useEffect(() => {
     setStatus(false);
   }, []);
@@ -168,7 +167,6 @@ export default function ContactCard() {
           </label>
           <textarea
             className="my-2 p-2  w-10/12 md:w-6/12 lg:w-4/12 bg-slate-200 rounded-xl shadow-inner resize-none"
-            id=""
             cols={30}
             rows={10}
             placeholder="message"
@@ -190,7 +188,7 @@ export default function ContactCard() {
           />
 
           <button
-            className="my-2 p-2 w-10/12 md:w-5/12 lg:w-3/12  bg-sky-500 h-12 rounded-xl active:scale-90 active:shadow-sm shadow-lg hover:bg-amber-400 active:bg-amber-100 duration-300 ease-in shadow-gray-400"
+            className="my-2 p-2 w-10/12 md:w-5/12 lg:w-3/12  bg-sky-500 h-12 rounded-xl active:scale-75 active:md:scale-90  active:shadow-sm shadow-lg hover:bg-amber-400 focus:bg-amber-400  active:bg-amber-100 duration-300 ease-in shadow-gray-400"
             onClick={onButtonClick}
           >
             Send

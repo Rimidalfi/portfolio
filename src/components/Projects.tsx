@@ -20,5 +20,12 @@ export default function Projects(props: Props) {
     );
   });
 
-  return <>{projectsList}</>;
+  return (
+    <div className=" bg-slate-200">
+      <div className="bg-amber-200 p-6 md:px-14 shadow-xl z-10">
+        <h3 className="text-xl font-montserrat-bold">Projects</h3>
+      </div>
+      <div>{projectsList}</div>
+    </div>
+  );
 }

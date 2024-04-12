@@ -23,10 +23,10 @@ export default function ProjectCard(props: Props) {
   }, []);
 
   return (
-    <div className="m-4 w-screen  bg-white shadow-xl overflow-hidden hover:-translate-y-1 touch:-translate-y-1 duration-500">
+    <div className=" mb-4 bg-white shadow-xl overflow-hidden z-0">
       <Link to={`/project/${projectData?.projectURL}`}>
         <div>
-          <h3 className=" text-xl font-montserrat-bold p-4 py-2 pt-6">
+          <h3 className="m2 text-xl font-montserrat-bold p-4 py-2 pt-6">
             {projectData?.projectTitle}
           </h3>
         </div>
