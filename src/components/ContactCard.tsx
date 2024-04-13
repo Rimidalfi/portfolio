@@ -95,7 +95,7 @@ export default function ContactCard() {
   }
 
   return (
-    <div className="m-4 w-screen  flex flex-col items-center justify-center  bg-white shadow-xl">
+    <div className="flex flex-col items-center justify-center  bg-white shadow-xl">
       <div
         className={
           status
@@ -125,7 +125,7 @@ export default function ContactCard() {
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-center w-screen "
+          className="flex flex-col items-center bg-lime-200"
         >
           <input
             className="my-2 p-2 w-10/12 md:w-6/12 lg:w-4/12 grow bg-slate-200 rounded-xl shadow-inner"

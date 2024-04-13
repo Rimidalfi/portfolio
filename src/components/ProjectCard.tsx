@@ -23,19 +23,19 @@ export default function ProjectCard(props: Props) {
   }, []);
 
   return (
-    <div className=" mb-4 bg-white shadow-xl overflow-hidden z-0">
+    <div className="bg-white w-1/3">
       <Link to={`/project/${projectData?.projectURL}`}>
         <div>
-          <h3 className="m2 text-xl font-montserrat-bold p-4 py-2 pt-6">
+          <h3 className="font-montserrat-semibold p-4 ">
             {projectData?.projectTitle}
           </h3>
         </div>
-        <div className=" p-4 py-2 pb-6">
+        <div className="">
           <p>{projectData?.projectDescription}</p>
         </div>
         <div className="">
           <img
-            className="w-full"
+            className=""
             src={projectData?.projectImage}
             alt={projectData?.projectTitle}
           />

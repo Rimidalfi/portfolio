@@ -12,7 +12,6 @@ export default function getHero(
     .then((entry) => entry.items[0].fields)
     .then((entry: any) => {
       if (entry) {
-        console.log(entry.heroTitle);
         setHeroData({
           heroTitle: entry.heroTitle,
           heroText: entry.heroText,

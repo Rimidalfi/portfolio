@@ -11,7 +11,7 @@ function Layout() {
   return (
     <div className="">
       <Header />
-      <main className="mt-64 md:mt-88 flex justify-center items-center bg-gradient-to-tr from-slate-400">
+      <main className="mt-64 md:mt-88 bg-gradient-to-tr from-slate-500 ">
         <Suspense fallback={<div>loading...</div>}>
           <Outlet />
         </Suspense>
