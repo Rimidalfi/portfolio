@@ -47,7 +47,7 @@ export default function Skillcard() {
   return (
     <div className="flex flex-wrap flex-col justify-center items-center  min:h-52 md:min:h-80 bg-gradient-to-tr from-zinc-900 to-zinc-700 ">
       <div className="w-full bg-white p-6 md:px-14 shadow-xl shadow-zinc-800 z-10">
-        <h3 className="text-xl font-montserrat-bold">Skills</h3>
+        <h3 className="heading">Skills</h3>
       </div>
       <div className="my-4 w-10/12 md:w-8/12 lg:w-6/12 flex flex-wrap justify-center items-center z-0">
         {skillEntries}

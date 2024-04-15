@@ -23,23 +23,22 @@ export default function ProjectCard(props: Props) {
   }, []);
 
   return (
-    <div className="bg-white w-1/3">
+    <div className="flex flex-col bg-white overflow-hidden h-full  relative shadow-lg  md:rounded-3xl  hover:scale-101 hover:shadow-2xl  ease-in duration-300">
       <Link to={`/project/${projectData?.projectURL}`}>
-        <div>
-          <h3 className="font-montserrat-semibold p-4 ">
-            {projectData?.projectTitle}
-          </h3>
-        </div>
-        <div className="">
-          <p>{projectData?.projectDescription}</p>
-        </div>
-        <div className="">
-          <img
-            className=""
-            src={projectData?.projectImage}
-            alt={projectData?.projectTitle}
-          />
-        </div>
+        <img
+          className="w-full h-60 object-cover"
+          src={projectData?.projectImage}
+          alt={projectData?.projectTitle}
+        />
+        <h3 className="font-montserrat-semibold text-white absolute top-0 p-3 backdrop-blur-sm bg-black/20 m-4 rounded-full">
+          {projectData?.projectTitle}
+        </h3>
+        <p className="p-4 mb-12 text-gray-500">
+          {projectData?.projectDescription}
+        </p>
+        <button className="font-montserrat-semibold text-white bg-gradient-to-bl from-cyan-400 to-indigo-600 py-2 px-3 self-left m-4 absolute bottom-0 rounded-full hover:opacity-90">
+          VIEW PROJECT
+        </button>
       </Link>
     </div>
   );
