@@ -21,11 +21,13 @@ export default function Projects(props: Props) {
   });
 
   return (
-    <div className=" bg-slate-200">
-      <div className="bg-amber-200 p-6 md:px-14 shadow-xl z-10">
-        <h3 className="text-xl font-montserrat-bold">Projects</h3>
+    <div className="">
+      <div className="w-full bg-white p-6 md:px-14 shadow-lg z-10">
+        <h3 className="heading">Projects</h3>
       </div>
-      <div>{projectsList}</div>
+      <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 md:mt-6 2xl:mx-40 pb-6">
+        {projectsList}
+      </div>
     </div>
   );
 }

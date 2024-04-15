@@ -42,3 +42,6 @@
   font-family: "MonoLisa-Regular";
   src: url("/src/assets/fonts/MonoLisa-Regular.woff2");
 }
+.heading {
+  @apply text-xl md:text-center font-montserrat-semibold text-zinc-700;
+}

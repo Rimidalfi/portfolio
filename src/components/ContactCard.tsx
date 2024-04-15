@@ -95,7 +95,7 @@ export default function ContactCard() {
   }
 
   return (
-    <div className="m-4 w-screen  flex flex-col items-center justify-center  bg-white shadow-xl">
+    <div className="flex flex-col items-center justify-center  shadow-xl">
       <div
         className={
           status
@@ -112,23 +112,23 @@ export default function ContactCard() {
       <div
         className={
           !status
-            ? "z-0"
+            ? "z-0 flex flex-col justify-center items-center relative"
             : "opacity-0 transition-opacity ease-in-out delay-150 duration-300 z-0"
         }
       >
-        <div className="text-center">
-          <h3 className="text-xl pt-2">Contact</h3>
+        <div className="w-full bg-white p-6 md:px-14 shadow-lg z-10">
+          <h3 className="heading">Contact</h3>
+        </div>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col cursor-pointer items-center m-4 w-full md:w-5/12  bg-white md:rounded-3xl shadow-lg z-10 hover:shadow-2xl  ease-in duration-300"
+        >
           <div className="flex flex-row items-center justify-center text-slate-600">
             <h3 className="pr-1 py-2">Lets get in touch</h3>
             <h3 className="text-2xl">🤝</h3>
           </div>
-        </div>
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col items-center w-screen "
-        >
           <input
-            className="my-2 p-2 w-10/12 md:w-6/12 lg:w-4/12 grow bg-slate-200 rounded-xl shadow-inner"
+            className="my-2 p-2 grow bg-slate-200 rounded-xl shadow-inner"
             type="text"
             placeholder="email"
             name="email"
@@ -143,7 +143,7 @@ export default function ContactCard() {
             * Please enter a valid email
           </label>
           <input
-            className="my-2 p-2 w-10/12 md:w-6/12 lg:w-4/12  bg-slate-200 rounded-xl shadow-inner"
+            className="my-2 p-2   bg-slate-200 rounded-xl shadow-inner"
             type="text"
             placeholder="name (optional)"
             name="name"
@@ -151,7 +151,7 @@ export default function ContactCard() {
             onChange={handleChange}
           />
           <input
-            className="my-2 p-2 w-10/12  md:w-6/12 lg:w-4/12 bg-slate-200 rounded-xl shadow-inner"
+            className="my-2 p-2  bg-slate-200 rounded-xl shadow-inner"
             type="text"
             placeholder="phone (optional)"
             name="phone"
@@ -166,7 +166,7 @@ export default function ContactCard() {
             * Please enter a valid Phone number
           </label>
           <textarea
-            className="my-2 p-2  w-10/12 md:w-6/12 lg:w-4/12 bg-slate-200 rounded-xl shadow-inner resize-none"
+            className="my-2 p-2   bg-slate-200 rounded-xl shadow-inner resize-none"
             cols={30}
             rows={10}
             placeholder="message"
@@ -188,7 +188,7 @@ export default function ContactCard() {
           />
 
           <button
-            className="my-2 p-2 w-10/12 md:w-5/12 lg:w-3/12  bg-sky-500 h-12 rounded-xl active:scale-75 active:md:scale-90  active:shadow-sm shadow-lg hover:bg-amber-400 focus:bg-amber-400  active:bg-amber-100 duration-300 ease-in shadow-gray-400"
+            className="w-6/12 font-montserrat-semibold text-white bg-gradient-to-bl from-cyan-400 to-indigo-600 py-2 px-3 self-left m-4  rounded-full hover:opacity-90"
             onClick={onButtonClick}
           >
             Send

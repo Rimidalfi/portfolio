@@ -45,15 +45,18 @@ export default function Skillcard() {
     );
   });
   return (
-    <div className="flex flex-wrap justify-center items-center min:h-52 md:min:h-80 m-4 w-screen bg-gradient-to-tr from-zinc-900 to-zinc-700 ">
-      <div className="w-screen bg-white z-10 p-6 md:px-14 font-montserrat-bold shadow-xl shadow-zinc-800">
-        <h3 className="text-xl font-montserrat-bold">Skills</h3>
+    <div className="flex flex-wrap flex-col justify-center items-center  min:h-52 md:min:h-80 bg-gradient-to-tr from-zinc-900 to-zinc-700 ">
+      <div className="w-full bg-white p-6 md:px-14 shadow-xl shadow-zinc-800 z-10">
+        <h3 className="heading">Skills</h3>
       </div>
       <div className="my-4 w-10/12 md:w-8/12 lg:w-6/12 flex flex-wrap justify-center items-center z-0">
         {skillEntries}
-        <button className=" inline-block px-6 py-3 text-center text-white align-middle transition-all rounded-full cursor-pointer leading-pro ease-soft-in tracking-tight-soft shadow-soft-md drop-shadow-xl hover:scale-110 focus:scale-110 focus:rotate-2 hover:rotate-2 active:opacity-85 focus:shadow-lg focus:bg-zinc-900 focus:shadow-blue-500/25 hover:shadow-lg hover:bg-zinc-900 hover:shadow-blue-500/25">
+        {/* <button className=" inline-block px-6 py-3 text-center text-white align-middle transition-all rounded-full cursor-pointer leading-pro ease-soft-in tracking-tight-soft shadow-soft-md drop-shadow-xl hover:scale-110 focus:scale-110 focus:rotate-2 hover:rotate-2 active:opacity-85 focus:shadow-lg focus:bg-zinc-900 focus:shadow-blue-500/25 hover:shadow-lg hover:bg-zinc-900 hover:shadow-blue-500/25">
           test
         </button>
+        <button className=" bg-fuchsia-400 rounded-full p-2  ease-in focus:bg-green-800">
+          test2
+        </button> */}
       </div>
     </div>
   );

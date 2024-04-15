@@ -1,7 +1,7 @@
 import Projects from "../../components/Projects";
 export default function AllProjects() {
   return (
-    <div className="py-1">
+    <div className="">
       <Projects all={true} />
     </div>
   );
