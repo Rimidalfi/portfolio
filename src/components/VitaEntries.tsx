@@ -21,7 +21,6 @@ export default function VitaEntires() {
   });
   return (
     <div className="flex flex-col md:items-center text-4xl text-center  text-white">
-      Vita 📝
       {vitaPoints}
     </div>
   );

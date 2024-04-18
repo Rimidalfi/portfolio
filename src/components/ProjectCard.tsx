@@ -30,14 +30,14 @@ export default function ProjectCard(props: Props) {
           src={projectData?.projectImage}
           alt={projectData?.projectTitle}
         />
-        <h3 className="font-montserrat-semibold text-white absolute top-0 p-3 backdrop-blur-sm bg-black/20 m-4 rounded-full">
+        <h3 className="font-montserrat-semibold text-white absolute top-0 p-3 backdrop-blur-sm bg-black/20 mt-4 ml-3 rounded-full">
           {projectData?.projectTitle}
         </h3>
-        <p className="p-4 mb-12 text-gray-500">
+        <p className="p-4 mb-14 text-gray-500">
           {projectData?.projectDescription}
         </p>
-        <button className="font-montserrat-semibold text-white bg-gradient-to-bl from-cyan-400 to-indigo-600 py-2 px-3 self-left m-4 absolute bottom-0 rounded-full hover:opacity-90">
-          VIEW PROJECT
+        <button className="font-montserrat-semibold text-white bg-gradient-to-bl from-cyan-400 to-indigo-600 py-2 px-3 self-left m-4  absolute bottom-0 rounded-full hover:opacity-90">
+          View Project
         </button>
       </Link>
     </div>
