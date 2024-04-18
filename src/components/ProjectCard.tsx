@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import getSingleProject from "../utils/getSingleProject";
-import slugify from "slugify";
 
 export interface ProjectCardData {
   projectTitle?: any;
