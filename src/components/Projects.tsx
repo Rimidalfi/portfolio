@@ -22,10 +22,10 @@ export default function Projects(props: Props) {
 
   return (
     <div className="">
-      <div className="w-full bg-white p-6 md:px-14 shadow-lg z-10">
+      <div className="heading-container">
         <h3 className="heading">Projects</h3>
       </div>
-      <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 md:mt-6 2xl:mx-40 pb-6">
+      <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 2xl:mx-40 ">
         {projectsList}
       </div>
     </div>

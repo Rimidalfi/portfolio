@@ -11,6 +11,7 @@ export default function getSingleProject(
     .then((entry: any) => {
       if (entry) {
         const fields = entry.fields;
+        console.log("FIELDS:", fields);
         const projectData: ProjectCardData = {
           projectTitle: fields.projectTitle,
           projectDescription: fields.projectDescription,

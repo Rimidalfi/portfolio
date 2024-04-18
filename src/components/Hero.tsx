@@ -15,22 +15,17 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-bl from-cyan-400 to-indigo-600">
-      <div className="col-start-1 row-start-1 z-10 p-8 sm:p-20 md:p-30 xl:p-30 text-white ">
-        <h1 className="font-montserrat-bold text-xl sm:text-4xl md:text-5xl xl:text-6xl">
-          {heroData?.heroTitle}
-        </h1>
-        <div className=" text-sm sm:text-lg md:text-2xl xl:text-3xl w-auto sm:w-3/6 md:w-3/6 lg:w-3/6 xl:w-3/6">
-          <h3 className="pt-0 sm:pt-1 md:pt-2 bg-fuchsia-300">
-            {heroData?.heroSubtitle}
-          </h3>
-          <p className="w-5/6 sm:w-auto pb-4 pt-1 sm:pt-2 md:pt-4 font-montserrat-italic bg-gray-600">
-            {heroData?.heroText}
-          </p>
-          <img className="" src={heroData?.heroImage} alt="" />
-        </div>
+    <div className="flex flex-col md:flex-row justify-center bg-gradient-to-bl w-full from-cyan-400 to-indigo-600">
+      <div className="flex flex-col justify-center text-white hero3">
+        <h1 className="font-montserrat-bold hero1">{heroData?.heroTitle}</h1>
+        <h3 className="font-montserrat-italic md:pb-4">
+          {heroData?.heroSubtitle}
+        </h3>
+        <p className="">{heroData?.heroText}</p>
       </div>
-      <div className=""></div>
+      <div className="img self-center lg:pr-40 md:f-full">
+        <img className="" src={heroData?.heroImage} alt="" />
+      </div>
     </div>
   );
 }

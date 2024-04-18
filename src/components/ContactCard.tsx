@@ -116,12 +116,12 @@ export default function ContactCard() {
             : "opacity-0 transition-opacity ease-in-out delay-150 duration-300 z-0"
         }
       >
-        <div className="w-full bg-white p-6 md:px-14 shadow-lg z-10">
+        <div className="heading-container">
           <h3 className="heading">Contact</h3>
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col cursor-pointer items-center m-4 w-full md:w-5/12  bg-white md:rounded-3xl shadow-lg z-10 hover:shadow-2xl  ease-in duration-300"
+          className="flex flex-col cursor-pointer items-center mb-4 md:mb-6 w-full md:w-5/12  bg-white md:rounded-3xl shadow-lg z-10 hover:shadow-2xl  ease-in duration-300"
         >
           <div className="flex flex-row items-center justify-center text-slate-600">
             <h3 className="pr-1 py-2">Lets get in touch</h3>
