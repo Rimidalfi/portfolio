@@ -23,7 +23,7 @@ export default function Hero() {
         </h3>
         <p className="">{heroData?.heroText}</p>
       </div>
-      <div className="img self-center lg:pr-40 md:f-full">
+      <div className="img self-center bottom-0 lg:pr-40 md:f-full">
         <img className="" src={heroData?.heroImage} alt="" />
       </div>
     </div>

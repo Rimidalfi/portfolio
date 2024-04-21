@@ -9,9 +9,9 @@ function Layout() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
   return (
-    <div className="">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="mt-64 md:mt-88 bg-gradient-to-tr from-slate-200 ">
+      <main className="flex mt-64 md:mt-88 bg-gradient-to-tr from-slate-200 flex-grow">
         <Suspense fallback={<div>loading...</div>}>
           <Outlet />
         </Suspense>
