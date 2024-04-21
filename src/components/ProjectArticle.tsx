@@ -21,23 +21,19 @@ export default function ProjectArticle(props: Props) {
   }, []);
 
   return (
-    <div className="m-6 my-8 md:m-8 lg:m-14 rounded-xl bg-white shadow-xl overflow-hidden">
-      <div>
-        <h3 className=" text-xl font-montserrat-bold p-4 py-2 pt-6">
+    <div className="flex justify-center overflow-hidden">
+      <div className="bg-white md:w-1/2 2xl:w-1/3 ">
+        <h3 className=" pt-4 px-4  md:pt-8 md:px-6 text-xl md:text-2xl font-montserrat-bold">
           {projectData?.projectTitle}
         </h3>
-      </div>
-      <div className=" p-4 py-2 pb-6">
-        <p>{projectData?.projectDescription}</p>
-      </div>
-      <div className="">
+        <p className="p-4 md:p-6">{projectData?.projectDescription}</p>
         <img className="w-full " src={projectData?.projectImage} alt="" />
-      </div>
-      <div className="p-4 py-2 pb-6">
-        {documentToReactComponents(
-          projectData?.projectRichText,
-          RICHTEXT_OPTIONS
-        )}
+        <div className="p-4 md:p-6">
+          {documentToReactComponents(
+            projectData?.projectRichText,
+            RICHTEXT_OPTIONS
+          )}
+        </div>
       </div>
     </div>
   );

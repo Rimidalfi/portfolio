@@ -54,3 +54,9 @@
 .hero1 {
   @apply md:py-4 text-3xl sm:text-4xl md:text-4xl lg:text-5xl 2xl:text-6xl;
 }
+.education {
+  @apply flex ml-4 md:ml-0 md:justify-end md:mr-auto md:w-1/2;
+}
+.work {
+  @apply flex ml-4 md:ml-0 md:ml-auto md:w-1/2;
+}

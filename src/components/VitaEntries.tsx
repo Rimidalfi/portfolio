@@ -13,14 +13,14 @@ export default function VitaEntires() {
     getIds(setVitaObjects);
   }, []);
   const vitaPoints = vitaObjects.map((object) => {
-    return (
-      <div key={object.vitaId}>
-        <VitaPoint entryId={object.vitaId} />
-      </div>
-    );
+    return <VitaPoint entryId={object.vitaId} key={object.vitaId} />;
   });
   return (
-    <div className="flex flex-col md:items-center text-4xl text-center  text-white">
+    <div className="relative flex-col text-white w-full">
+      <div className="heading-container relative z-10">
+        <h3 className="heading">Vita</h3>
+      </div>
+      <div className=" bg-slate-300 w-1 absolute left-3 inset-0 md:right-0 md:left-0 md:mx-auto z-0 mt-4 md:mt-6"></div>
       {vitaPoints}
     </div>
   );

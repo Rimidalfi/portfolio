@@ -10,12 +10,14 @@ export default function getVita(
     .getEntry(entryId)
     .then((entry: any) => {
       if (entry) {
+        console.log("IMAGGGGE:", entry);
         setVitaData({
           vitaTitle: entry.fields.vitaTitle,
           vitaDescription: entry.fields.vitaDescription,
           vitaStartDate: entry.fields.vitaStartDate,
           vitaEndDate: entry.fields.vitaEndDate,
           vitaType: entry.fields.vitaType,
+          vitaImage: entry.fields.vitaImage?.fields.file.url,
         });
       }
     })
