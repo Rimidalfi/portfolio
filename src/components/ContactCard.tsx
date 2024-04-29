@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Spamguard from "./Spamguard";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import getLogo from "../utils/getLogo";
 import checkSkeleton from "../utils/checkSkeleton";
 
 export interface FormData {
