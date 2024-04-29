@@ -25,6 +25,9 @@ export default {
       scale:{
         '103':'1.03',
         '101':'1.01'
+      },
+      colors:{
+        'skeleton':'#ebebeb'
       }
     },
   

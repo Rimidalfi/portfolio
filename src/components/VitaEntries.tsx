@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import getIds from "../utils/getIds";
-import VitaPoint from "../components/VitaPoint";
+import VitaPoint, { VitaPointSkeleton } from "../components/VitaPoint";
 
 export interface VitaObject {
   vitaId: string;
@@ -21,7 +21,15 @@ export default function VitaEntires() {
         <h3 className="heading">Vita</h3>
       </div>
       <div className=" bg-slate-300 w-1 absolute left-3 inset-0 md:right-0 md:left-0 md:mx-auto z-0 mt-4 md:mt-6"></div>
-      {vitaPoints}
+      {vitaPoints.length !== 0 ? (
+        vitaPoints
+      ) : (
+        <>
+          <VitaPointSkeleton type="education" />
+          <VitaPointSkeleton type="work" />
+          <VitaPointSkeleton type="work" />
+        </>
+      )}
     </div>
   );
 }

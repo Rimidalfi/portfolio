@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import getSingleProject from "../utils/getSingleProject";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export interface ProjectCardData {
   projectTitle?: any;
@@ -40,6 +42,20 @@ export default function ProjectCard(props: Props) {
           View Project
         </button>
       </Link>
+    </div>
+  );
+}
+
+export function ProjectCardSkeleton() {
+  return (
+    <div>
+      <div className="flex flex-col bg-white overflow-hidden h-full  relative shadow-lg  md:rounded-3xl">
+        <div className="w-full h-60 object-cover bg-skeleton animate-pulse"></div>
+        <div className="flex absolute top-0 backdrop-blur-sm bg-black/10 mt-4 ml-4 rounded-full h-10 w-2/3"></div>
+        <p className="p-4 mb-14 text-gray-500">
+          <Skeleton count={3.5} />
+        </p>
+      </div>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Logo from "../../components/Logo";
 import Social from "../../components/Social";
 import { useEffect } from "react";
 import Quote from "../../components/Quote";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function Footer() {
   useEffect(() => {
@@ -11,8 +12,8 @@ function Footer() {
   }, [Link]);
   return (
     <footer className="flex flex-col bg-neutral-700 text-white ">
-      <div className="flex justify-evenly py-8 leading-8">
-        <ul className="pr-4 md:pr-0">
+      <div className="flex justify-evenly py-8  ">
+        <ul className="pr-4 md:pr-0 ">
           <li>
             <Link to={path.HOME}>home</Link>
           </li>
@@ -26,11 +27,11 @@ function Footer() {
             <Link to={path.VITA}>vita</Link>
           </li>
         </ul>
-        <div className="flex flex-col items-center justify-center pr-8 md:pr-0">
+        <div className="flex flex-col items-center justify-center pr-8 md:pr-0 ">
           <Logo color="white" path={path.HOME} height={"h-8"} />
           <Quote />
         </div>
-        <ul className="pl-2 pr-2 md:pr-0 md:pl-0 flex flex-col items-center justify-center">
+        <ul className="pl-2 pr-2 md:pr-0 md:pl-0 flex flex-col items-center justify-center bg-sky-500s">
           <li>
             <Social media={"Github"} size={"size-6"} />
           </li>

@@ -1,5 +1,8 @@
 import { useState, useEffect, ReactElement } from "react";
 import getVita from "../utils/getVita";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 const work: ReactElement = (
   <svg
     className=" size-6 ml-4"
@@ -18,7 +21,6 @@ const work: ReactElement = (
     />
   </svg>
 );
-
 const education: ReactElement = (
   <svg
     className=" size-6 ml-4"
@@ -37,7 +39,6 @@ const education: ReactElement = (
     ></path>
   </svg>
 );
-
 export interface VitaData {
   vitaTitle?: string;
   vitaDescription?: string;
@@ -45,10 +46,14 @@ export interface VitaData {
   vitaEndDate?: string;
   vitaType?: boolean;
   vitaImage?: string;
+  vitaDuration?: string;
 }
 export interface Props {
   entryId: string;
   key: string;
+}
+export interface SkeletonProps {
+  type: "education" | "work";
 }
 
 export default function VitaPoint(props: Props) {
@@ -70,14 +75,28 @@ export default function VitaPoint(props: Props) {
             {vitaData?.vitaTitle}
             <span>{vitaData?.vitaType ? education : work}</span>
           </p>
-
           <p className="font-montserrat-italic text-zinc-400 px-6 text-md mb-2">
-            {vitaData?.vitaStartDate?.slice(0, 4)}-
-            {vitaData?.vitaEndDate?.slice(0, 4)}
+            {vitaData?.vitaDuration}
           </p>
-
           <p className="px-6 text-md">{vitaData?.vitaDescription}</p>
         </div>
+      </div>
+    </div>
+  );
+}
+export function VitaPointSkeleton(prop: SkeletonProps) {
+  return (
+    <div className={prop.type}>
+      <span className=" absolute  left-2 mt-40 rounded-full size-3 bg-zinc-500 md:right-0 md:left-0 md:mx-auto md:size-4"></span>
+      <div className="flex flex-col bg-white overflow-hidden h-full w-full md:w-2/3 xl:w-1/2 m-4 relative shadow-lg  rounded-3xl">
+        <div className="w-full h-36 object-cover bg-skeleton animate-pulse"></div>
+        <div className="flex absolute top-0 backdrop-blur-sm bg-black/10 mt-4 ml-4 rounded-full h-10 w-2/3"></div>
+        <p className="px-4 pt-2  text-gray-500">
+          <Skeleton count={0.33} />
+        </p>
+        <p className="px-4 py-4  text-gray-500">
+          <Skeleton count={1.5} />
+        </p>
       </div>
     </div>
   );

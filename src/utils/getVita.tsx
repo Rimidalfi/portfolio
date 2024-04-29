@@ -18,6 +18,10 @@ export default function getVita(
           vitaEndDate: entry.fields.vitaEndDate,
           vitaType: entry.fields.vitaType,
           vitaImage: entry.fields.vitaImage?.fields.file.url,
+          vitaDuration: `${entry.fields.vitaStartDate.slice(
+            0,
+            4
+          )}-${entry.fields.vitaEndDate.slice(0, 4)}`,
         });
       }
     })

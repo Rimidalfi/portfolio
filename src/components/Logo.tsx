@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import getLogo from "../utils/getLogo";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 export interface Props {
   color: string;
   path: string;
@@ -21,10 +24,27 @@ export default function Logo(props: Props) {
   }, []);
 
   return (
-    <div className="">
-      <Link to={props.path}>
-        <img src={logo} alt="JANO" className={props.height} />
-      </Link>
-    </div>
+    <>
+      {logo !== "" ? (
+        <div className="">
+          <Link to={props.path}>
+            <img src={logo} alt="JANO" className={props.height} />
+          </Link>
+        </div>
+      ) : (
+        <LogoSkeleton />
+      )}
+    </>
+  );
+}
+
+export function LogoSkeleton() {
+  return (
+    <Skeleton
+      height={"2rem"}
+      width={"4rem"}
+      baseColor="#bfbfbb"
+      borderRadius={"1rem"}
+    />
   );
 }
