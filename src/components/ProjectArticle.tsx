@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import RICHTEXT_OPTIONS from "../utils/projectOptions";
 import getProjectByURL from "../utils/getProjectByURL";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export interface ArticleData {
   projectTitle?: any;
@@ -21,19 +23,40 @@ export default function ProjectArticle(props: Props) {
   }, []);
 
   return (
-    <div className="flex justify-center overflow-hidden">
-      <div className="bg-white md:w-1/2 2xl:w-1/3 ">
-        <h3 className=" pt-4 px-4  md:pt-8 md:px-6 text-xl md:text-2xl font-montserrat-bold">
-          {projectData?.projectTitle}
-        </h3>
-        <p className="p-4 md:p-6">{projectData?.projectDescription}</p>
-        <img className="w-full " src={projectData?.projectImage} alt="" />
-        <div className="p-4 md:p-6">
-          {documentToReactComponents(
-            projectData?.projectRichText,
-            RICHTEXT_OPTIONS
-          )}
+    <div className="flex justify-center overflow-hidden w-full">
+      {projectData ? (
+        <div className="bg-white md:w-1/2 2xl:w-1/3 ">
+          <h3 className=" pt-4 px-4  md:pt-8 md:px-6 text-xl md:text-2xl font-montserrat-bold">
+            {projectData?.projectTitle}
+          </h3>
+          <p className="p-4 md:p-6">{projectData?.projectDescription}</p>
+          <img className="w-full " src={projectData?.projectImage} alt="" />
+          <div className="p-4 md:p-6">
+            {documentToReactComponents(
+              projectData?.projectRichText,
+              RICHTEXT_OPTIONS
+            )}
+          </div>
         </div>
+      ) : (
+        <ProjectArticleSkeleton />
+      )}
+    </div>
+  );
+}
+
+function ProjectArticleSkeleton() {
+  return (
+    <div className="bg-white w-full md:w-1/2 2xl:w-1/3">
+      <h3 className=" pt-4 px-4  md:pt-8 md:px-6 text-xl md:text-2xl font-montserrat-bold">
+        <Skeleton count={0.7} />
+      </h3>
+      <p className="p-4 md:p-6">
+        <Skeleton count={1.5} />
+      </p>
+      <div className=" w-full h-2/6 bg-skeleton animate-pulse"></div>
+      <div className="p-4 md:p-6">
+        <Skeleton count={4.5} />
       </div>
     </div>
   );

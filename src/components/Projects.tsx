@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProjectCard from "./ProjectCard";
+import ProjectCard, { ProjectCardSkeleton } from "./ProjectCard";
 import getProjectIds from "../utils/getProjectIds";
 
 export interface Props {
@@ -21,13 +21,21 @@ export default function Projects(props: Props) {
   });
 
   return (
-    <div className="">
+    <>
       <div className="heading-container">
         <h3 className="heading">Projects</h3>
       </div>
-      <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 2xl:mx-40 ">
-        {projectsList}
-      </div>
-    </div>
+      {projectsList.length !== 0 ? (
+        <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 2xl:mx-40 ">
+          {projectsList}
+        </div>
+      ) : (
+        <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 2xl:mx-40">
+          <ProjectCardSkeleton />
+          <ProjectCardSkeleton />
+          <ProjectCardSkeleton />
+        </div>
+      )}
+    </>
   );
 }
