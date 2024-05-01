@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RICHTEXT_OPTIONS from "../utils/projectOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import getImprint from "../utils/getImprint";
+import { Helmet } from "react-helmet-async";
 
 export interface imprintData {
   title: any;
@@ -19,6 +20,10 @@ export default function ImprintText() {
   }, []);
   return (
     <div className="md:w-2/4">
+      <Helmet>
+        <title>{imprintData?.title}</title>
+        <meta name="description" content="" />
+      </Helmet>
       <h1 className="text-xl font-montserrat-semibold py-2">
         {imprintData?.title}
       </h1>

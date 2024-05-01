@@ -17,6 +17,8 @@ export default function getHero(
           heroText: entry.heroText,
           heroImage: entry.heroImage.fields.file.url,
           heroSubtitle: entry.heroSubtitle,
+          heroMetaDescription: entry.heroMetaDescription,
+          heroMetaTitle: entry.heroMetaTitle,
         });
       }
     })
