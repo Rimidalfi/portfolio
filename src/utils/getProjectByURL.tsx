@@ -17,6 +17,7 @@ export default function getProjectByURL(
           projectImage: entry.projectImage?.fields.file.url,
           projectRichText: entry.projectRichText,
           projectFeatured: entry.projectFeatured,
+          projectAuthor: entry.projectAuthor,
         });
       }
     })
