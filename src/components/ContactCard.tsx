@@ -99,9 +99,9 @@ export default function ContactCard() {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <>
       {skeletonStatus ? (
-        <>
+        <div className="flex flex-col justify-center items-center">
           <div
             className={
               status
@@ -121,7 +121,7 @@ export default function ContactCard() {
             className={
               !status
                 ? "z-0 flex flex-col justify-center items-center relative"
-                : "opacity-0 transition-opacity ease-in-out delay-150 duration-300 z-0"
+                : "opacity-0 transition-opacity ease-in-out delay-150 duration-300 z-0 flex flex-col justify-center items-center relative"
             }
           >
             <div className="heading-container">
@@ -209,11 +209,11 @@ export default function ContactCard() {
               </div>
             </form>
           </div>
-        </>
+        </div>
       ) : (
         <ContactCardSkeleton />
       )}
-    </div>
+    </>
   );
 }
 
