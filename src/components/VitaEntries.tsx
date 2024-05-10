@@ -16,7 +16,7 @@ export default function VitaEntires() {
     return <VitaPoint entryId={object.vitaId} key={object.vitaId} />;
   });
   return (
-    <div className="relative flex-col text-white w-full">
+    <div className="relative flex-col text-white w-full pb-4">
       <div className="heading-container relative z-10">
         <h3 className="heading">Vita</h3>
       </div>
@@ -27,7 +27,7 @@ export default function VitaEntires() {
         <>
           <VitaPointSkeleton type="education" />
           <VitaPointSkeleton type="work" />
-          <VitaPointSkeleton type="work" />
+          <VitaPointSkeleton type="education" />
         </>
       )}
     </div>

@@ -47,7 +47,7 @@ export default function Skillcard() {
     );
   });
   return (
-    <div className=" min:h-52 md:min:h-80 ">
+    <div className=" min:h-52 md:min:h-80 w-full">
       <div className="heading-container">
         <h3 className="heading">Skills</h3>
       </div>
