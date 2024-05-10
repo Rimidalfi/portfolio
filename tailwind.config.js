@@ -19,8 +19,8 @@ export default {
   },
     extend: {
       spacing: {
-        '88': '88px',
-        '64': '64px',
+        '88': '87px',
+        '64': '63px',
       },
       scale:{
         '103':'1.03',

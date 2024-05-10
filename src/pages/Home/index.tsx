@@ -5,7 +5,7 @@ import Skillcard from "../../components/Skillcard";
 
 export default function Home() {
   return (
-    <div>
+    <div className="pt-0.5  w-full flex flex-col items-center">
       <Hero />
       <Skillcard />
       <Projects all={false} />

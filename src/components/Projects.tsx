@@ -22,20 +22,22 @@ export default function Projects(props: Props) {
 
   return (
     <>
-      <div className="heading-container">
-        <h3 className="heading">Projects</h3>
+      <div className="w-full">
+        <div className="heading-container">
+          <h3 className="heading">Projects</h3>
+        </div>
+        {projectsList.length !== 0 ? (
+          <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 2xl:mx-40 ">
+            {projectsList}
+          </div>
+        ) : (
+          <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 2xl:mx-40">
+            <ProjectCardSkeleton />
+            <ProjectCardSkeleton />
+            <ProjectCardSkeleton />
+          </div>
+        )}
       </div>
-      {projectsList.length !== 0 ? (
-        <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 2xl:mx-40 ">
-          {projectsList}
-        </div>
-      ) : (
-        <div className="grid gap-4 md:grid-cols-3 md:gap-10 md:mx-10 2xl:mx-40">
-          <ProjectCardSkeleton />
-          <ProjectCardSkeleton />
-          <ProjectCardSkeleton />
-        </div>
-      )}
     </>
   );
 }
