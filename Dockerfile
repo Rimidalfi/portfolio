@@ -12,4 +12,4 @@ COPY . .
 
 RUN npm run build
 
-CMD ["npm","serve"]
+CMD ["npm","run","serve"]
