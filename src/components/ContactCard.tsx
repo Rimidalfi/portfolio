@@ -63,13 +63,13 @@ export default function ContactCard() {
     if (/^[\/\d-+]*$/.test(value)) {
       setFormRequire((values: FormRequire) => ({ ...values, phone: true }));
       setFormValues((values: FormData) => ({ ...values, [name]: value }));
-      console.log("VALUES NUMMBERS");
+      //console.log("VALUES NUMMBERS");
     } else {
       setFormRequire((values: FormRequire) => ({
         ...values,
         [name]: !formRequire.name,
       }));
-      console.log("VALUES NOT NUMMBERS");
+      //console.log("VALUES NOT NUMMBERS");
     }
   }
 
@@ -77,7 +77,7 @@ export default function ContactCard() {
     if (formRequire.calc) {
       if (formValues.email.includes("@") && formValues.message.length > 0) {
         sendEmail(formValues);
-        console.log("FORMVALUES:", formValues);
+        //console.log("FORMVALUES:", formValues);
         setFormValues({
           name: "",
           phone: "",
@@ -91,7 +91,7 @@ export default function ContactCard() {
           email: formValues.email.includes("@") ? true : false,
           message: formValues.message.length > 0 ? true : false,
         }));
-        console.log("REQUIRED FIELDS EMPTY!");
+        //console.log("REQUIRED FIELDS EMPTY!");
       }
     } else {
       formRequire.calc ? setCalcStatus(true) : setCalcStatus(false);

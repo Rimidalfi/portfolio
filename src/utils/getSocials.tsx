@@ -20,7 +20,7 @@ function getSocials(
     .then((entry: any) => {
       const updatedSocials: Socials = { ...socials };
       const items: any[] = entry.items;
-      // console.log(items);
+      // //console.log(items);
       items.forEach((element) => {
         const title: string = element.fields.logoTitle;
         updatedSocials[title] = {

@@ -10,7 +10,7 @@ export default function getVita(
     .getEntry(entryId)
     .then((entry: any) => {
       if (entry) {
-        console.log("IMAGGGGE:", entry);
+        //console.log("IMAGGGGE:", entry);
         setVitaData({
           vitaTitle: entry.fields.vitaTitle,
           vitaDescription: entry.fields.vitaDescription,

@@ -48,7 +48,7 @@ export default function HideInfo(props: calcProps) {
       secondValue: summand2,
       result: result,
     });
-    console.log("HIDEINFO", calcValues, "USERINPUT", userInput);
+    //console.log("HIDEINFO", calcValues, "USERINPUT", userInput);
   }, []);
   return (
     <div className="flex flex-col items-center justify-center w-full">

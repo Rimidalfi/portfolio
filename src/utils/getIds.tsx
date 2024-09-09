@@ -8,7 +8,7 @@ export default function getIds(
   client
     .getEntries({ content_type: "vita" })
     .then((entry: any) => {
-      console.log("getIds", entry.items);
+      //console.log("getIds", entry.items);
       const entryIds = entry.items
         .map((item: any) => {
           if (item) {
@@ -23,7 +23,7 @@ export default function getIds(
           (a: any, b: any) =>
             parseInt(b?.vitaEndDate) - parseInt(a?.vitaEndDate)
         );
-      console.log("Sorted list", entryIds);
+      //console.log("Sorted list", entryIds);
       setIds(entryIds);
     })
     .catch((err) => console.error("getIds ERROR:", err));
