@@ -1,4 +1,4 @@
-FROM node:22-alpine as react
+FROM node:22-alpine AS react
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine as nginx
+FROM nginx:alpine AS nginx
 
 COPY --from=react /app/dist /usr/share/nginx/html
 
