@@ -1,4 +1,4 @@
-FROM node:22-alpine as REACT_BUILD
+FROM node:22-alpine as react
 
 WORKDIR /app
 
@@ -10,9 +10,9 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine as WEBSERVER
+FROM nginx:alpine as nginx
 
-COPY --from=REACT_BUILD /app/dist /usr/share/nginx/html
+COPY --from=react /app/dist /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
