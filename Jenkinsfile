@@ -39,7 +39,7 @@ else
     echo "DOCKER SYSTEM PRUNED 🧹"
     docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
     echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
-    docker run -d -p ${PORT}:3000 \
+    docker run -d -p ${PORT}:80 \
     --name ${CONTAINER} \
     -e VITE_ACCESS_TOKEN=${ACCESS_TOKEN} \
     -e VITE_SPACE_ID=${SPACE_ID} \
