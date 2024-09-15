@@ -1,6 +1,7 @@
 import { FormData } from "../components/ContactCard";
 
-const { VITE_EMAIL_API } = import.meta.env;
+// const { VITE_EMAIL_API } = import.meta.env;
+const VITE_EMAIL_API = "";
 
 export default function sendEmail(formData: FormData) {
   const requestOptions = {

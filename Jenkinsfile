@@ -30,6 +30,8 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
 else
+    export VITE_ACCESS_TOKEN=${ACCESS_TOKEN}
+    export VITE_SPACE_ID=${SPACE_ID}
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
@@ -37,14 +39,10 @@ else
     echo "DOCKER CONTAINER >${CONTAINER}< STOPPED 🚫"
     docker system prune -a -f
     echo "DOCKER SYSTEM PRUNED 🧹"
+    envsubst < nginx.conf
     docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
     echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
-    docker run -d -p ${PORT}:3000 \
-    --name ${CONTAINER} \
-    -e VITE_ACCESS_TOKEN=${ACCESS_TOKEN} \
-    -e VITE_SPACE_ID=${SPACE_ID} \
-    -e VITE_EMAIL_API=${EMAIL_API} \
-    ${IMAGE}
+    docker run -d -p ${PORT}:3000 --name ${CONTAINER} ${IMAGE}
     echo "DOCKER CONTAINER >${CONTAINER}< STARTED ✅"
 fi
 EOF
