@@ -32,7 +32,7 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
 else
     export VITE_ACCESS_TOKEN=${ACCESS_TOKEN}
     export VITE_SPACE_ID=${SPACE_ID}
-    echo VITE_SPACE_ID
+    echo $VITE_SPACE_ID
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
