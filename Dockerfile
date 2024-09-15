@@ -14,7 +14,7 @@ FROM nginx:alpine AS nginx
 
 COPY --from=react /app/dist /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY envnginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 3000
 
