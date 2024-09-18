@@ -10,7 +10,7 @@ pipeline {
         IMAGE = 'jano-portfolio'
         PORT = '5625'
         ACCESS_TOKEN = credentials('VITE_ACCESS_TOKEN')
-        PACE_ID = credentials('VITE_SPACE_ID')
+        SPACE_ID = credentials('VITE_SPACE_ID')
     }
 
     stages {
@@ -26,10 +26,10 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
 else
-    export VITE_ACCESS_TOKEN=${ACCESS_TOKEN}
-    export VITE_SPACE_ID=${SPACE_ID}
-    echo "Access Token: $VITE_ACCESS_TOKEN
-    echo "Space ID: $VITE_SPACE_ID
+    export ACCESS_TOKEN=${ACCESS_TOKEN}
+    export SPACE_ID=${SPACE_ID}
+    echo "Access Token: $ACCESS_TOKEN
+    echo "Space ID: $SPACE_ID
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
