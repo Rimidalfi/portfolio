@@ -22,7 +22,7 @@ pipeline {
                     script {
                         sh '''
 ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
-VITE_ACCESS_TOKEN=${ACCESS_TOKEN} VITE_SPACE_ID=${SPACE_ID} bash -c '
+VITE_ACCESS_TOKEN=${ACCESS_TOKEN} VITE_SPACE_ID=${SPACE_ID} bash -c
 if [ ! -d ${REPO_PATH} ]; then
     echo "mkdir at ${REPO_PATH}"
     mkdir -p ${REPO_PATH}
