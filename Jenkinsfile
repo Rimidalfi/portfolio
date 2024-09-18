@@ -30,8 +30,10 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
 else
-    VITE_ACCESS_TOKEN=${ACCESS_TOKEN}
-    VITE_SPACE_ID=${SPACE_ID}
+    export VITE_ACCESS_TOKEN=${ACCESS_TOKEN}
+    export VITE_SPACE_ID=${SPACE_ID}
+    echo "Access Token: $VITE_ACCESS_TOKEN"
+    echo "Space ID: $VITE_SPACE_ID"
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
