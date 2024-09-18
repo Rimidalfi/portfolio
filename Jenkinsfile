@@ -9,17 +9,13 @@ pipeline {
         CONTAINER = 'jano-studio'
         IMAGE = 'jano-portfolio'
         PORT = '5625'
+        ACCESS_TOKEN = credentials('VITE_ACCESS_TOKEN')
+        PACE_ID = credentials('VITE_SPACE_ID')
     }
 
     stages {
         stage('Connect and Execute') {
             steps {
-                withCredentials([
-                    string(credentialsId: 'VITE_ACCESS_TOKEN', variable: 'ACCESS_TOKEN'),
-                    string(credentialsId: 'VITE_SPACE_ID', variable: 'SPACE_ID'),
-                    string(credentialsId: 'VITE_EMAIL_API', variable: 'EMAIL_API')
-                ]) {
-
                         sh '''
 ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
 if [ ! -d ${REPO_PATH} ]; then
@@ -30,10 +26,10 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
 else
-    export VITE_ACCESS_TOKEN="$ACCESS_TOKEN"
-    export VITE_SPACE_ID="$SPACE_ID"
-    echo "Access Token: $VITE_ACCESS_TOKEN"
-    echo "Space ID: $VITE_SPACE_ID"
+    export VITE_ACCESS_TOKEN=${ACCESS_TOKEN}
+    export VITE_SPACE_ID=${SPACE_ID}
+    echo "Access Token: $VITE_ACCESS_TOKEN
+    echo "Space ID: $VITE_SPACE_ID
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
@@ -54,4 +50,4 @@ EOF
             }
         }
     }
-}
+
