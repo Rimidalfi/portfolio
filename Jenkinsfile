@@ -22,6 +22,7 @@ pipeline {
                     script {
                         sh '''
 ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+VITE_ACCESS_TOKEN=${ACCESS_TOKEN} VITE_SPACE_ID=${SPACE_ID} bash -c '
 if [ ! -d ${REPO_PATH} ]; then
     echo "mkdir at ${REPO_PATH}"
     mkdir -p ${REPO_PATH}
@@ -30,8 +31,6 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
 else
-    export VITE_ACCESS_TOKEN=${ACCESS_TOKEN}
-    export VITE_SPACE_ID=${SPACE_ID}
     echo "Access Token: $VITE_ACCESS_TOKEN"
     echo "Space ID: $VITE_SPACE_ID"
     cd ${REPO_PATH}
