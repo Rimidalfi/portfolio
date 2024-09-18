@@ -32,7 +32,6 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
 else
     VITE_ACCESS_TOKEN=${ACCESS_TOKEN}
     VITE_SPACE_ID=${SPACE_ID}
-    echo $VITE_SPACE_ID
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
@@ -43,7 +42,7 @@ else
     envsubst < nginx.conf > envnginx.conf
     docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
     echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
-    docker run -d -p ${PORT}:3000 --name ${CONTAINER} ${IMAGE}
+    docker run -d -p ${PORT}:80 --name ${CONTAINER} ${IMAGE}
     echo "DOCKER CONTAINER >${CONTAINER}< STARTED ✅"
 fi
 EOF
