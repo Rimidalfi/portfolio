@@ -26,8 +26,8 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
 else
-    export ACCESS_TOKEN=${ACCESS_TOKEN}
-    export SPACE_ID=${SPACE_ID}
+    export ACCESS_TOKEN="${ACCESS_TOKEN}"
+    export SPACE_ID="${SPACE_ID}"
     echo "Access Token: $ACCESS_TOKEN
     echo "Space ID: $SPACE_ID
     cd ${REPO_PATH}
