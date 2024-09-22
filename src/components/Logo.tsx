@@ -28,7 +28,7 @@ export default function Logo(props: Props) {
       {logo !== "" ? (
         <div className="">
           <Link to={props.path}>
-            <img src={logo} alt="JANO" className={props.height} />
+            <img src={logo} alt="JANO Logo" className={props.height} />
           </Link>
         </div>
       ) : (
