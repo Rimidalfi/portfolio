@@ -43,6 +43,8 @@ export default function Skillcard() {
     return (
       <div key={`${entry.skill}_${entry.level}`}>
         <SingleSkill skill={entry.skill} size={entry.level} />
+        {/* icon rendering */}
+        {/* {entry.img ? <img src={entry.img} alt="" /> : null} */}
       </div>
     );
   });
