@@ -28,6 +28,7 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
 else
     export LOCAL_ACCESS_TOKEN="${ACCESS_TOKEN}"
     export LOCAL_SPACE_ID="${SPACE_ID}"
+    sleep 1s
     echo "Access Token: ${LOCAL_ACCESS_TOKEN}"
     echo "Space ID: ${LOCAL_SPACE_ID}"
     cd ${REPO_PATH}
@@ -36,6 +37,7 @@ else
     docker stop ${CONTAINER}
     echo "DOCKER CONTAINER >${CONTAINER}< STOPPED 🚫"
     docker system prune -a -f
+    sleep 1s
     echo "DOCKER SYSTEM PRUNED 🧹"
     envsubst '$LOCAL_ACCESS_TOKEN,$LOCAL_SPACE_ID' < nginx.conf > envnginx.conf
     docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
