@@ -28,6 +28,7 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
 else
     export LOCAL_ACCESS_TOKEN=${ACCESS_TOKEN}
     export LOCAL_SPACE_ID=${SPACE_ID}
+    echo "Space ID:${SPACE_ID}"
     sleep 1s
     echo "Access Token: ${LOCAL_ACCESS_TOKEN}"
     echo "Space ID: ${LOCAL_SPACE_ID}"
