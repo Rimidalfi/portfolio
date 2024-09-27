@@ -26,11 +26,13 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
 else
+    set -x
     export LOCAL_ACCESS_TOKEN="example"
     export LOCAL_SPACE_ID=${SPACE_ID}
     sleep 1s
     echo "Access Token: $LOCAL_ACCESS_TOKEN"
-    echo "Space ID: ${LOCAL_SPACE_ID}"
+    echo "Space ID: $LOCAL_SPACE_ID"
+    set +x
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
