@@ -27,11 +27,8 @@ if [ ! -d "${REPO_PATH}/.git" ]; then
     echo "cloning repository from:${REPO_URL}"
 else
     set -x
-    export LOCAL_ACCESS_TOKEN="example"
+    export LOCAL_ACCESS_TOKEN=${ACCESS_TOKEN}
     export LOCAL_SPACE_ID=${SPACE_ID}
-    sleep 1s
-    echo "Access Token: $LOCAL_ACCESS_TOKEN"
-    echo "Space ID: $LOCAL_SPACE_ID"
     set +x
     cd ${REPO_PATH}
     git pull origin main
@@ -39,9 +36,10 @@ else
     docker stop ${CONTAINER}
     echo "DOCKER CONTAINER >${CONTAINER}< STOPPED 🚫"
     docker system prune -a -f
-    sleep 1s
     echo "DOCKER SYSTEM PRUNED 🧹"
+    set -x
     envsubst '$LOCAL_ACCESS_TOKEN,$LOCAL_SPACE_ID' < nginx.conf > envnginx.conf
+    set +x
     docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
     echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
     docker run -d -p ${PORT}:80 --name ${CONTAINER} ${IMAGE}
