@@ -38,7 +38,7 @@ else
     docker system prune -a -f
     echo "DOCKER SYSTEM PRUNED 🧹"
     set -x
-    envsubst '$LOCAL_ACCESS_TOKEN,$LOCAL_SPACE_ID' < nginx.conf > envnginx.conf
+    envsubst '${LOCAL_ACCESS_TOKEN} ${LOCAL_SPACE_ID}' < nginx.conf > envnginx.conf
     set +x
     docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
     echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
