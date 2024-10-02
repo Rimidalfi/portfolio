@@ -19,7 +19,7 @@ pipeline {
                 steps{
 
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
 if [ ! -d ${REPO_PATH} ]; then
 echo "mkdir at ${REPO_PATH}"
 mkdir -p ${REPO_PATH}
@@ -33,7 +33,7 @@ EOF
                 steps{
 
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
 if [ ! -d "${REPO_PATH}/.git" ]; then
 git clone ${REPO_URL} ${REPO_PATH}
 echo "cloning repository from:${REPO_URL}"
@@ -62,7 +62,7 @@ EOF
                 steps{
 
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
 docker stop ${CONTAINER}
 echo "DOCKER CONTAINER >${CONTAINER}< STOPPED 🚫"
 docker system prune -a -f
