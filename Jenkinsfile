@@ -19,7 +19,7 @@ pipeline {
                 steps{
 
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
 if [ ! -d ${REPO_PATH} ]; then
 echo "mkdir at ${REPO_PATH}"
 mkdir -p ${REPO_PATH}
@@ -33,7 +33,7 @@ EOF
                 steps{
 
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
 if [ ! -d "${REPO_PATH}/.git" ]; then
 git clone ${REPO_URL} ${REPO_PATH}
 echo "cloning repository from:${REPO_URL}"
@@ -47,7 +47,7 @@ EOF
                 steps{
 
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
 cd ${REPO_PATH}
 git pull origin main
 echo "pulling repository from:${REPO_URL}"
@@ -60,7 +60,7 @@ EOF
                 steps{
 
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
 docker stop ${CONTAINER}
 echo "DOCKER CONTAINER >${CONTAINER}< STOPPED 🚫"
 docker system prune -a -f
@@ -73,7 +73,8 @@ EOF
              stage('write env to nginx.conf'){
                 steps{
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
+cd ${REPO_PATH}
 chmod +x modify_nginx.sh
 ./modify_nginx.sh ${ACCESS_TOKEN} ${SPACE_ID}
 EOF
@@ -84,7 +85,8 @@ EOF
              stage('build & run docker container'){
                 steps{
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
+cd ${REPO_PATH}
 docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
 echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
 docker run -d -p ${PORT}:80 --name ${CONTAINER} ${IMAGE}
