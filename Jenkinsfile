@@ -73,10 +73,12 @@ EOF
              stage('write env to nginx.conf'){
                 steps{
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+set -x
 cd ${REPO_PATH}
 chmod +x modify_nginx.sh
 ./modify_nginx.sh ${ACCESS_TOKEN} ${SPACE_ID}
+set +x
 EOF
 '''
                 }
@@ -85,12 +87,14 @@ EOF
              stage('build & run docker container'){
                 steps{
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+set -x
 cd ${REPO_PATH}
 docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
 echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
 docker run -d -p ${PORT}:80 --name ${CONTAINER} ${IMAGE}
 echo "DOCKER CONTAINER >${CONTAINER}< STARTED ✅"
+set +x
 EOF
 '''
                 }
