@@ -24,7 +24,7 @@ fi
 EOF
 '''
         } 
-        
+
         stage('check repo'){
             sh '''
 ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
@@ -77,4 +77,4 @@ EOF
 '''
         }
     }
-
+}
