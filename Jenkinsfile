@@ -47,10 +47,12 @@ EOF
                 steps{
 
 sh '''
-ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} MOTD_SHOWN=false <<EOF
+ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
+set -x
 cd ${REPO_PATH}
 git pull origin main
 echo "pulling repository from:${REPO_URL}"
+set +x
 EOF
 '''
                 }
