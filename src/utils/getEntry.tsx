@@ -1,8 +1,8 @@
-function getEntry(url: string): Promise<Record<string, unknown>> {
+function getEntry(entryId: string): Promise<Record<string, unknown>> {
   const resquest: string =
-    "https://wladimir.janowitsch.com/api/contentful/entry/";
+    "https://wladimir.janowitsch.com/api/contentful/entry/sys.id=";
 
-  return fetch(resquest + url)
+  return fetch(resquest + entryId)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Response NOT OK! 🥲");
