@@ -1,6 +1,5 @@
 import { SetStateAction, Dispatch } from "react";
 import getEntries from "./getEntries";
-
 import { VitaObject } from "../components/VitaEntries";
 
 // export default function getIds(
@@ -36,7 +35,6 @@ export default function getIds(
   getEntries("vita")
     .then((json: any) => {
       console.log("VITA JSON 🤗", json);
-
       const entryIds = json.items
         .map((item: any) => {
           if (item) {
