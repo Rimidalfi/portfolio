@@ -44,7 +44,13 @@ export default function Skillcard() {
       <div key={`${entry.skill}_${entry.level}`}>
         <SingleSkill skill={entry.skill} size={entry.level} />
         {/* icon rendering */}
-        {/* {entry.img ? <img src={entry.img} alt="" /> : null} */}
+        {/* {entry.img ? (
+          <img
+            src={entry.img}
+            alt=""
+            className="transition-all drop-shadow-xl hover:scale-105 hover:rotate-2 sm:size-24"
+          />
+        ) : null} */}
       </div>
     );
   });

@@ -1,25 +1,24 @@
 import { SetStateAction, Dispatch } from "react";
 import { ArticleData } from "../components/ProjectArticle";
-import client from "../utils/client";
+import getEntries from "./getEntries";
 
 export default function getProjectByURL(
   entryURL: string | undefined,
   setProjectData: Dispatch<SetStateAction<ArticleData | undefined>>
 ): void {
-  client
-    .getEntries({ content_type: "project", "fields.projectURL": `${entryURL}` })
-    .then((entry) => entry.items[0].fields)
-    .then((entry: any) => {
-      if (entry) {
-        setProjectData({
-          projectTitle: entry.projectTitle,
-          projectDescription: entry.projectDescription,
-          projectImage: entry.projectImage?.fields.file.url,
-          projectRichText: entry.projectRichText,
-          projectFeatured: entry.projectFeatured,
-          projectAuthor: entry.projectAuthor,
-        });
-      }
+  getEntries("project", "projectURL", entryURL)
+    .then((json: any) => {
+      const imgUrl = json.includes.Asset[0].fields.file.url;
+      const item = json.items[0].fields;
+      console.log("PROJECTS BY URL", json.includes.Asset[0].fields.file.url);
+      setProjectData({
+        projectTitle: item.projectTitle,
+        projectDescription: item.projectDescription,
+        projectImage: imgUrl,
+        projectRichText: item.projectRichText,
+        projectFeatured: item.projectFeatured,
+        projectAuthor: item.projectAuthor,
+      });
     })
     .catch((err) => console.error("get Single Project by URL ERROR:", err));
 }

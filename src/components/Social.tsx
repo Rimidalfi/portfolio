@@ -20,7 +20,7 @@ export default function Social(props: Props) {
   const [socials, setSocials] = useState<Socials>({});
   useEffect(() => {
     getSocials(setSocials, socials);
-  }, []);
+  }, [socials]);
   return (
     <>
       {socials[props.media] ? (

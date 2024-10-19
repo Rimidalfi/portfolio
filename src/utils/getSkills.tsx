@@ -1,25 +1,24 @@
 import { SetStateAction, Dispatch } from "react";
-import client from "../utils/client";
 import { SkillData } from "../components/Skillcard";
+import getEntries from "./getEntries";
+import getEntry from "./getEntry";
 
-export default function getSkills(
+export default async function getSkills(
   setSkillData: Dispatch<SetStateAction<SkillData[]>>
-): void {
-  client
-    .getEntries({ content_type: "skill" })
-    .then((entry: any) => {
-      const featuredProjects = entry.items;
-      const skillList: SkillData[] = featuredProjects.map((skill: any) => {
-        const skillName: string = skill.fields.skillName;
-        const skillLevel: string = skill.fields.skillLevel;
-        const skillIcon: string = skill.fields.skillIcon?.fields.file.url;
-        return {
-          skill: skillName,
-          level: skillLevel,
-          img: skillIcon ? skillIcon : null,
-        };
-      });
-      setSkillData(skillList);
-    })
-    .catch((err) => console.error("get Single Project ERROR:", err));
+): Promise<void> {
+  const skillArray = await getEntries("skill").then((json: any) => json.items);
+  const skillIds = await skillArray.map((object: any) => object.sys.id);
+  console.log(skillIds);
+  const skillObjects = await skillIds.map(async (entryId: any) => {
+    const entryJSON: any = await getEntry(entryId);
+    return {
+      skill: entryJSON.items[0].fields.skillName,
+      level: entryJSON.items[0].fields.skillLevel,
+      img: entryJSON.includes?.Asset[0].fields.file.url
+        ? entryJSON.includes.Asset[0].fields.file.url
+        : null,
+    };
+  });
+  const skillList = await Promise.all(skillObjects);
+  setSkillData(skillList);
 }

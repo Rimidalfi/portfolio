@@ -1,17 +1,18 @@
 function getEntries(
   contentType: string,
-  fields?: string
+  fieldKey?: string,
+  fieldValue?: string
 ): Promise<Record<string, unknown>> {
   const resquest: string =
     "https://wladimir.janowitsch.com/api/contentful/entry/";
-  const formatedFields: string = `&fields.${fields}`;
+  const formatedFields: string = `&fields.${fieldKey}=${fieldValue}`;
 
   const params: string = `content_type=${contentType}${
-    typeof fields !== undefined ? formatedFields : ""
+    fieldKey === undefined ? "" : formatedFields
   }`;
-
   return fetch(resquest + params)
     .then((response) => {
+      console.log("get status:", response.status);
       if (!response.ok) {
         throw new Error("Response NOT OK! 🥲");
       }

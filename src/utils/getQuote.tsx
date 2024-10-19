@@ -1,17 +1,15 @@
 import { SetStateAction, Dispatch } from "react";
-import client from "../utils/client";
+import getEntry from "./getEntry";
 
 const quoteEntry: string = "75clceYVFFdMXOeSuVzWRE";
 
 function getQuote(setQuote: Dispatch<SetStateAction<string[]>>): void {
-  client
-    .getEntry(quoteEntry)
-    .then((entry: any) => {
-      const quoteData: string[] = [
-        entry.fields.quoteText,
-        entry.fields.quoteAuthor,
-      ];
-      setQuote(quoteData);
+  getEntry(quoteEntry)
+    .then((json: any) => {
+      return json.items[0].fields;
+    })
+    .then((item) => {
+      setQuote([item.quoteText, item.quoteAuthor]);
     })
     .catch((err) => console.error("ERROR:", err));
 }

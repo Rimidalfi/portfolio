@@ -1,26 +1,22 @@
 import { Dispatch, SetStateAction } from "react";
 import { HeroData } from "../components/Hero";
-import client from "../utils/client";
+import getEntries from "./getEntries";
 
 export default function getHero(
   setHeroData: Dispatch<SetStateAction<HeroData | undefined>>
 ): void {
-  client
-    .getEntries({
-      content_type: "heroSection",
-    })
-    .then((entry) => entry.items[0].fields)
-    .then((entry: any) => {
-      if (entry) {
-        setHeroData({
-          heroTitle: entry.heroTitle,
-          heroText: entry.heroText,
-          heroImage: entry.heroImage.fields.file.url,
-          heroSubtitle: entry.heroSubtitle,
-          heroMetaDescription: entry.heroMetaDescription,
-          heroMetaTitle: entry.heroMetaTitle,
-        });
-      }
+  getEntries("heroSection")
+    .then((json: any) => {
+      const imgUrl = json.includes.Asset[0].fields.file.url;
+      const fields = json.items[0].fields;
+      setHeroData({
+        heroTitle: fields.heroTitle,
+        heroText: fields.heroText,
+        heroImage: imgUrl,
+        heroSubtitle: fields.heroSubtitle,
+        heroMetaDescription: fields.heroMetaDescription,
+        heroMetaTitle: fields.heroMetaTitle,
+      });
     })
     .catch((err) => console.error("get Hero ERROR:", err));
 }
