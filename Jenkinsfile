@@ -94,7 +94,7 @@ set -x
 cd ${REPO_PATH}
 docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
 echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
-docker run -d -p ${PORT}:80 --name ${CONTAINER} ${IMAGE}
+docker run -d -p ${PORT}:80 --name ${CONTAINER} --restart unless-stopped ${IMAGE}
 echo "DOCKER CONTAINER >${CONTAINER}< STARTED ✅"
 set +x
 EOF
